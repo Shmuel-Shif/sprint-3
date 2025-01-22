@@ -5,6 +5,7 @@
     height: 3em;
     align-self: center;
     justify-self: start;
-    margin-left: 20px;
+    margin-left: 2em;
     background-color: #eaf1fb;
+    border-radius: 1em;
 }

@@ -1,10 +1,10 @@
 export function MailPreview({ mail }) {
-    return <article className={`mail-preview ${(mail.isRead) ?'read' : ''}`}>
-        <h5 className='mail-preview-from'>{mail.from}</h5>
+    return <article className={`mail-preview grid ${(mail.isRead) ? 'read' : ''}`}>
+        <span className='mail-preview-from'>{mail.from}</span>
         <div className='mail-preview-subject'>
-        <h5 >{mail.subject}</h5>
-        <p>{mail.body}</p>
+        <span>{mail.subject}<span>{mail.body}</span></span>
         </div>
-        <h5 className='mail-preview-date'>{`${new Date(mail.sentAt).toDateString()}`}</h5>
+        <span className='mail-preview-date'>{`${new Date(mail.sentAt).toDateString()}`}</span>
+        {/* <button onClick={() => onRemove(mail.id)}>🗑️</button> */}
     </article>
 }

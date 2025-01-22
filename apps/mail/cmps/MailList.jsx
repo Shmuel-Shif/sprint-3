@@ -7,8 +7,7 @@ export function MailList({ mails, onRemove }) {
         <ul className='clean-list grid'>
             {mails.map(mail => 
                 <li key={mail.id} >
-                    <MailPreview mail={mail} />
-                    <button onClick={() => onRemove(mail.id)}>🗑️</button>
+                    <MailPreview mail={mail} onRemove={onRemove}/>
                 </li>
             )}
         </ul>

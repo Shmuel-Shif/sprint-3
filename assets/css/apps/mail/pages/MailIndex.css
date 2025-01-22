@@ -4,6 +4,9 @@
     grid-template-rows:  75px 1fr;
     color: #202124;
     background-color: #f6f8fc;
+    width: 100%;
+    height: auto;
+    margin-bottom: 0;
  }
 
  .logo{
