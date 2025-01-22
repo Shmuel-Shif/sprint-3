@@ -1,0 +1,29 @@
+header {
+    background: rgb(220, 226, 226);
+    border-bottom: 2px solid white;
+}
+
+.app-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 1.1em 5em;
+    font-size: 1.2em;
+}
+
+header h3 {
+    color: rgb(46, 79, 190);
+}
+
+nav a {
+    margin: .5em;
+}
+
+nav a:active {
+    color: purple;
+}
+
+nav a.active {
+    color: darkblue;
+    font-weight: bold;
+    text-decoration: overline;
+}
