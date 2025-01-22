@@ -67,7 +67,9 @@ function getDefaultFilter() {
 
 function _createMails() {
     let mails = storageServiceUtils.loadFromStorage(MAIL_KEY)
+    console.log(mails);
     if (!mails || !mails.length) {
+        let mails = []
         for (let i = 0; i < 5; i++) {
             const mail = {
                 id: utilService.makeId(),
@@ -80,11 +82,12 @@ function _createMails() {
                 from: 'momo@momo.com',
                 to: 'user@appsus.com'
             }
+
             mails.push(mail)
 
         }
         console.log(mails)
-        storageServiceUtil.saveToStorage(MAIL_KEY, mails)
+        storageServiceUtils.saveToStorage(MAIL_KEY, mails)
     }
 }
 

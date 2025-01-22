@@ -20,7 +20,8 @@ export function MailIndex() {
     function removeMail() {
         console.log('removed!!!')
     }
-    
+
+    if(!mails) return <h2>Loading</h2>
     return (
         <div className='mails-container'>
             <h1>Jmail</h1>
