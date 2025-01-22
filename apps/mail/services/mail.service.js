@@ -73,11 +73,11 @@ function _createMails() {
         for (let i = 0; i < 5; i++) {
             const mail = {
                 id: utilService.makeId(),
-                createdAt:utilService.getRandomIntInclusive(1551133930594, 1737544572356), ///
+                createdAt: utilService.getRandomIntInclusive(1551133930594, 1737544572356), ///
                 subject: utilService.makeLorem(2),
                 body: utilService.makeLorem(8),
                 isRead: Math.random() > 0.7,
-                sentAt:  utilService.getRandomIntInclusive(1551133930594, 1737544572356),////
+                sentAt: utilService.getRandomIntInclusive(1551133930594, 1737544572356),////
                 removedAt: null,
                 from: 'momo@momo.com',
                 to: 'user@appsus.com'
@@ -95,11 +95,11 @@ function _setNextPrevMailId(mail) {
     return storageService.query(MAIL_KEY)
         .then((mails) => {
             const mailIdx = mails.findIndex((currMail) => currMail.id === mail.id)
-            const nextMail = mails[mailIdx + 1] ? [mailIdx + 1] : mails[0]
-            const prevMail = mails[mailIdx - 1] ? [mailIdx - 1] : mails[mails.lenght - 1]
+            const nextMail = mails[mailIdx + 1] ? mails[mailIdx + 1] : mails[0]
+            const prevMail = mails[mailIdx - 1] ? mails[mailIdx - 1] : mails[mails.lenght - 1]
             mail.nextMailId = nextMail.id
             mail.prevMailId = prevMail.id
-            return book
+            return mail
         })
 }
 

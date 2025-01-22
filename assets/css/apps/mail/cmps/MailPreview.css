@@ -1,13 +1,20 @@
 .mail-preview{
     grid-template-columns: 300px 1fr 160px;
     font-size: 1.2em;
-    line-height: 16px;
-    overflow-x: hidden;
+
     align-items: center;
     height: 2em;
+    margin-left: 20px;
 
 }
 
 .mail-preview.read{
     background-color: #eaf1fb;
+ }
+
+ .mail-preview-subject{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-right: 20px;
  }

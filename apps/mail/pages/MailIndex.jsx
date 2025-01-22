@@ -11,6 +11,8 @@ const { Link, useSearchParams } = ReactRouterDOM
 export function MailIndex() {
     const [mails, setMails] = useState([])
     const [filterBy, setFilterBy] = useState(mailService.getDefaultFilter())
+    const [selectedMailId, setSelectedMailId] = useState(null)
+
 
     useEffect(() => {
         mailService.query(filterBy)
@@ -24,20 +26,31 @@ export function MailIndex() {
         console.log('removed!!!')
     }
 
+    function onSelectedMailId(mailId) {
+        setSelectedMailId(mailId)
+    }
+
     if (!mails) return <h2>Loading</h2>
     return (
         <div className='mails-container grid'>
-            <button className="btn-toggle-menu" >☰</button> 
+            <button className="btn-toggle-menu" >☰</button>
             {/* onClick={toggleMenu()} */}
             <img src="../assets/img/Gmail_icon_(2020).svg.webp" className="logo" />
             <FilterMails />
-            <MailList mails={mails} onRemove={removeMail} />
+            {!selectedMailId && (
+                <MailList
+                    mails={mails}
+                    onRemove={removeMail}
+                    onSelectMail={onSelectedMailId} />)}
+            {selectedMailId &&
+                <MailDetails
+                    mailId={selectedMailId}
+                    onGoBack={() => setSelectedMailId(null)} />}
             <div className='mail-folder-list'>
                 <button>📧Compose</button>
                 <MailFolderList />
                 {/* <MailCompose /> */}
             </div>
-            {/* <MailDetails /> */}
         </div>
     )
 }
