@@ -1,4 +1,4 @@
-export const storageServiceUtil = {
+export const storageServiceUtils = {
     loadFromStorage,
     saveToStorage
 }

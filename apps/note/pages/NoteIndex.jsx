@@ -11,11 +11,27 @@ export function NoteIndex() {
         setNotes([...notes, newNote])
     }
 
+    function updateNote(idx, updatedText) {
+        if (!updatedText.trim()) return
+        const updatedNotes = [...notes]
+        updatedNotes[idx] = updatedText
+        setNotes(updatedNotes)
+    }
+    
+    function deleteNote(idx) {
+        const updatedNotes = notes.filter((_, i) => i !== idx)
+        setNotes(updatedNotes)
+    }    
+
     return (
         <section className="note-index">
             <h1>keep</h1>
             <NoteForm onAddNote={addNote} /> {}
-            <NoteList notes={notes} /> {}
+            <NoteList 
+                notes={notes} 
+                onUpdateNote={updateNote} 
+                onDeleteNote={deleteNote} 
+            />
         </section>
     )
 }
