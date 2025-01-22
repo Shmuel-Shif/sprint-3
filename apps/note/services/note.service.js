@@ -1,4 +1,3 @@
-import { storageServiceUtils } from '../../../services/storage.service.js'
 import { storageService } from '../../../services/async-storage.service.js'
 
 const NOTE_KEY = 'notes'
@@ -93,7 +92,7 @@ function _createDemoNotes() {
             }
         }
     ]
-    storageService.query(NOTE_KEY, demoNotes)
+    storageService.saveToStorage(NOTE_KEY, demoNotes)
 }
 
 function _makeId(length = 6) {
