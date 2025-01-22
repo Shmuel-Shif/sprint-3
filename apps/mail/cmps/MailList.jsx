@@ -5,7 +5,7 @@ export function MailList({ mails, onRemove }) {
         <ul>
             {mails.map(mail => {
                 <li key={mail.id}>
-                    <MailPreview mail={mail} />
+                    {/* <MailPreview mail={mail} /> */}
                     <button onClick={() => onRemove(mail.id)}>🗑️</button>
                 </li>
             })}
