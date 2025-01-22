@@ -1,1 +1,8 @@
  /* mail list */
+
+ .mails-list{
+    grid-column: 3;
+    grid-row: 2;
+    background-color: #fff;
+ }
+

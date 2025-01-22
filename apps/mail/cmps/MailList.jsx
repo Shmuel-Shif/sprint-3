@@ -3,12 +3,12 @@ import { MailPreview } from "./MailPreview.jsx"
 export function MailList({ mails, onRemove }) {
     console.log(mails);
     
-    return ( <section className='mails-list'>
-        <ul>
+    return ( <section  className='mails-list'>
+        <ul className='clean-list grid'>
             {mails.map(mail => 
-                <li key={mail.id}>
+                <li key={mail.id} >
                     <MailPreview mail={mail} />
-                    {/* <button onClick={() => onRemove(mail.id)}>🗑️</button> */}
+                    <button onClick={() => onRemove(mail.id)}>🗑️</button>
                 </li>
             )}
         </ul>

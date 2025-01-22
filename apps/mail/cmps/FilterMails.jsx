@@ -1,3 +1,3 @@
 export function FilterMails() {
-    return <div>Filter Mails</div>
+    return <div className='filter-mails'>Filter Mails</div>
 }

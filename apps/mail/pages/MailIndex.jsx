@@ -26,14 +26,18 @@ export function MailIndex() {
 
     if (!mails) return <h2>Loading</h2>
     return (
-        <div className='mails-container'>
-            <h1>Jmail</h1>
-            <button>📧Compose</button>
+        <div className='mails-container grid'>
+            <button className="btn-toggle-menu" >☰</button> 
+            {/* onClick={toggleMenu()} */}
+            <img src="../assets/img/Gmail_icon_(2020).svg.webp" className="logo" />
             <FilterMails />
             <MailList mails={mails} onRemove={removeMail} />
-            <MailFolderList />
-            <MailCompose/>
-            <MailDetails/>
+            <div className='mail-folder-list'>
+                <button>📧Compose</button>
+                <MailFolderList />
+                {/* <MailCompose /> */}
+            </div>
+            {/* <MailDetails /> */}
         </div>
     )
 }

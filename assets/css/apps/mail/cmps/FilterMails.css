@@ -1,0 +1,10 @@
+.filter-mails{
+    grid-column: 3;
+    grid-row: 1;
+    width: auto;
+    height: 3em;
+    align-self: center;
+    justify-self: start;
+    margin-left: 20px;
+    background-color: #eaf1fb;
+}
