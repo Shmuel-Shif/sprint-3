@@ -80,7 +80,7 @@ function _createMails(){
             subject: utilService.makeLorem(2),
             body: utilService.makeLorem(8),
             isRead: Math.random() > 0.7,
-            sentAt : 1551133930594,////
+            sentAt : 1551133930594,////            
             removedAt : null,
             from: 'momo@momo.com',
             to: 'user@appsus.com'
