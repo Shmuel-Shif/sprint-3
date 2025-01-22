@@ -1,6 +1,7 @@
 import { mailService } from '../services/mail.service.js'
 import { FilterMails } from '../cmps/FilterMails.jsx'
 import { MailList } from '../cmps/MailList.jsx'
+import { MailFolderList } from '../cmps/MailFolderList.jsx'
 
 const { useState, useEffect } = React
 const { Link, useSearchParams } = ReactRouterDOM
@@ -27,7 +28,7 @@ export function MailIndex() {
             <h1>Jmail</h1>
             <FilterMails />
             <MailList mails={mails} onRemove={removeMail} />
-
+<MailFolderList/>
         </div>
     )
 }
