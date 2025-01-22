@@ -1,5 +1,5 @@
 import { storageService } from '../../../services/async-storage.service.js'
-import { storageServiceUtil } from '../../../services/storage.service.js'
+import { storageServiceUtils } from '../../../services/storage.service.js'
 import { utilService } from '../../../services/util.service.js'
 
 const MAIL_KEY = 'mailDB'
@@ -66,7 +66,7 @@ function getDefaultFilter() {
 //    }
 
 function _createMails() {
-    let mails = storageServiceUtil.loadFromStorage(MAIL_KEY)
+    let mails = storageServiceUtils.loadFromStorage(MAIL_KEY)
     if (!mails || !mails.length) {
         for (let i = 0; i < 5; i++) {
             const mail = {
