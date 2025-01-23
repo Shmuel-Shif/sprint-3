@@ -1,4 +1,4 @@
-export function NoteList({ notes, onUpdateNote, onDeleteNote, onUpdateColor }) {
+export function NoteList({ notes, onUpdateNote, onDeleteNote, onUpdateColor, onPinNote }) {
     return (
         <div className="note-list">
             {notes.length === 0 && <p>No notes yet...</p>}
@@ -23,8 +23,7 @@ export function NoteList({ notes, onUpdateNote, onDeleteNote, onUpdateColor }) {
                             lineHeight: '1.5',
                             whiteSpace: 'pre-wrap',
                             wordBreak: 'break-word',
-                            outline: 'none'
-
+                            outline: 'none',
                         }}
                     >
                         {note.text}
@@ -32,22 +31,21 @@ export function NoteList({ notes, onUpdateNote, onDeleteNote, onUpdateColor }) {
                     <div style={{ position: 'absolute', top: '8px', right: '8px', display: 'flex', gap: '5px' }}>
                         <button
                             className="color-picker-btn"
-                            onClick={() => {
-                                const colorInput = document.createElement('input')
-                                colorInput.type = 'color'
-                                colorInput.style.display = 'none'
-                                document.body.appendChild(colorInput)
-                                colorInput.click()
-                                colorInput.oninput = (ev) => {
-                                    onUpdateColor(idx, ev.target.value)
-                                    document.body.removeChild(colorInput)
-                                }
-                            }}
+                            onClick={() => document.getElementById(`color-picker-${idx}`).click()}
                         >
                             &#9998;
                         </button>
+                        <input
+                            id={`color-picker-${idx}`}
+                            type="color"
+                            style={{ display: 'none' }}
+                            onChange={(ev) => onUpdateColor(idx, ev.target.value)}
+                        />
                         <button onClick={() => onDeleteNote(idx)} className="delete-btn">
                             🗑️
+                        </button>
+                        <button onClick={() => onPinNote(idx)} className="pin-btn">
+                            {note.isPinned ? '📌' : '📍'}
                         </button>
                     </div>
                 </div>

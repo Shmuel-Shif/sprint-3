@@ -13,10 +13,11 @@
 @import './pages/home.css';
 @import './pages/about.css';
 
-/* @import './apps/note/pages/NoteIndex.css'; */
+@import './apps/note/pages/NoteIndex.css';
 @import './apps/note/cmps/NoteList.css';
 @import './apps/note/cmps/NoteForm.css';
 @import './apps/note/cmps/NoteHeader.css';
+@import './apps/note/cmps/NotesMessage.css';
 @import './apps/mail/pages/MailIndex.css';
 
 

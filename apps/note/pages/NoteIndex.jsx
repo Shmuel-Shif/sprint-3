@@ -3,6 +3,7 @@ const { useState } = React
 import { NoteForm } from '../cmps/NoteForm.jsx'
 import { NoteList } from '../cmps/NoteList.jsx'
 import { NoteHeader } from '../cmps/NoteHeader.jsx'
+import { NotesMessage } from '../cmps/NotesMessage.jsx'
 
 export function NoteIndex() {
     const [notes, setNotes] = useState([])
@@ -10,7 +11,10 @@ export function NoteIndex() {
 
     function addNote(newNote) {
         if (!newNote.trim()) return
-        setNotes([...notes, { text: newNote, backgroundColor: '#ffffff', type: 'general' }])
+        setNotes([
+            ...notes,
+            { text: newNote, backgroundColor: '#ffffff', type: 'general', isPinned: false }
+        ])
     }
 
     function updateNote(idx, updatedText) {
@@ -31,27 +35,59 @@ export function NoteIndex() {
         setNotes(updatedNotes)
     }
 
+    function onPinNote(idx) {
+        const updatedNotes = [...notes]
+        updatedNotes[idx].isPinned = !updatedNotes[idx].isPinned
+        setNotes(updatedNotes)
+    }
+
     function handleSearchChange(ev) {
         setSearchTerm(ev.target.value)
     }
 
-    const filteredNotes = notes.filter(note => 
+    const filteredNotes = notes.filter(note =>
         note.text.toLowerCase().includes(searchTerm.toLowerCase())
     )
+
+    const pinnedNotes = filteredNotes.filter(note => note.isPinned)
+    const unpinnedNotes = filteredNotes.filter(note => !note.isPinned)
 
     return (
         <section className="note-index">
             <NoteHeader 
-            searchTerm={searchTerm} 
-            handleSearchChange={handleSearchChange} 
+                searchTerm={searchTerm} 
+                handleSearchChange={handleSearchChange} 
             />
             <NoteForm onAddNote={addNote} />
-            <NoteList 
-                notes={filteredNotes} 
-                onUpdateNote={updateNote} 
-                onDeleteNote={deleteNote} 
-                onUpdateColor={updateNoteColor} 
-            />
+
+            {pinnedNotes.length > 0 && (
+                <div>
+                    <NoteList 
+                        notes={pinnedNotes} 
+                        onUpdateNote={updateNote} 
+                        onDeleteNote={deleteNote} 
+                        onUpdateColor={updateNoteColor}
+                        onPinNote={onPinNote} 
+                    />
+                    <h6 className="Job-title">Pinned Notes</h6>
+                </div>
+
+            )}
+
+            {unpinnedNotes.length > 0 ? (
+                <div>
+                    <NoteList 
+                        notes={unpinnedNotes} 
+                        onUpdateNote={updateNote} 
+                        onDeleteNote={deleteNote} 
+                        onUpdateColor={updateNoteColor}
+                        onPinNote={onPinNote} 
+                    />
+                    <h6 className="Job-title">Other Notes</h6>
+                </div>
+            ) : (
+                <NotesMessage />
+            )}
         </section>
     )
 }

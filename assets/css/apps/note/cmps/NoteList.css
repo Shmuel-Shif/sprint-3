@@ -27,7 +27,7 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     font-family: 'Arial', sans-serif;
     font-size: 16px;
-    color: #333;
+    color: #000000;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -92,6 +92,18 @@
     transform: scale(1.30);
 }
 
+.pin-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.pin-btn:hover {
+    transform: scale(1.30);
+}
 
 
 @media screen and (max-width: 768px) {
