@@ -1,8 +1,6 @@
 import { MailPreview } from "./MailPreview.jsx"
 
 export function MailList({ mails, onRemove , onSelectMail }) {
-    console.log(mails);
-    
     return ( <section  className='mails-list'>
         <ul className='clean-list grid'>
             {mails.map(mail => 

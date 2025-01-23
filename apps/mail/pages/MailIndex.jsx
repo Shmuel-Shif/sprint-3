@@ -13,13 +13,9 @@ export function MailIndex() {
     const [filterBy, setFilterBy] = useState(mailService.getDefaultFilter())
     const [selectedMailId, setSelectedMailId] = useState(null)
 
-
     useEffect(() => {
         mailService.query(filterBy)
-            .then(mails => {
-                setMails(mails)
-                console.log(mails)
-            })
+            .then(setMails)
     }, [filterBy])
 
     function removeMail() {
@@ -29,6 +25,13 @@ export function MailIndex() {
     function onSelectedMailId(mailId) {
         setSelectedMailId(mailId)
     }
+
+    function setingUnReadCount(mails) {
+        console.log(mails)
+        return mails.reduce((acc, mail) => {
+            if (!mail.isRead) acc++
+            return acc
+        }, 0)}
 
     if (!mails) return <h2>Loading</h2>
     return (
@@ -43,12 +46,14 @@ export function MailIndex() {
                     onRemove={removeMail}
                     onSelectMail={onSelectedMailId} />)}
             {selectedMailId &&
-                <MailDetails
-                    mailId={selectedMailId}
-                    onGoBack={() => setSelectedMailId(null)} />}
+                        <Link to={`/mail/${selectedMailId}`}></Link>
+                        // <MailDetails
+                        // mailId={selectedMailId}
+                        // onGoBack={() => setSelectedMailId(null)} />
+                    }
             <div className='mail-folder-list'>
                 <button>📧Compose</button>
-                <MailFolderList />
+                <MailFolderList unReadCount={setingUnReadCount(mails)}/>
                 {/* <MailCompose /> */}
             </div>
         </div>

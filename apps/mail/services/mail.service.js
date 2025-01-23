@@ -67,10 +67,9 @@ function getDefaultFilter() {
 
 function _createMails() {
     let mails = storageServiceUtils.loadFromStorage(MAIL_KEY)
-    console.log(mails);
     if (!mails || !mails.length) {
         let mails = []
-        for (let i = 0; i < 5; i++) {
+        for (let i = 0; i < 100; i++) {
             const mail = {
                 id: utilService.makeId(),
                 createdAt: utilService.getRandomIntInclusive(1551133930594, 1737544572356), ///
