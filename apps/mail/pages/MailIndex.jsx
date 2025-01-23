@@ -27,11 +27,15 @@ export function MailIndex() {
     }
 
     function setingUnReadCount(mails) {
-        console.log(mails)
         return mails.reduce((acc, mail) => {
             if (!mail.isRead) acc++
             return acc
-        }, 0)}
+        }, 0)
+    }
+
+    function onSetFilter(filterByToEdit) {
+        setFilterBy(filterBy => ({ ...filterBy, ...filterByToEdit }))
+    }
 
     if (!mails) return <h2>Loading</h2>
     return (
@@ -39,21 +43,21 @@ export function MailIndex() {
             <button className="btn-toggle-menu" >☰</button>
             {/* onClick={toggleMenu()} */}
             <img src="../assets/img/Gmail_icon_(2020).svg.webp" className="logo" />
-            <FilterMails />
+            <FilterMails onSetFilter={onSetFilter} filterBy={filterBy}/>
             {!selectedMailId && (
                 <MailList
                     mails={mails}
                     onRemove={removeMail}
                     onSelectMail={onSelectedMailId} />)}
             {selectedMailId &&
-                        <Link to={`/mail/${selectedMailId}`}></Link>
-                        // <MailDetails
-                        // mailId={selectedMailId}
-                        // onGoBack={() => setSelectedMailId(null)} />
-                    }
+                <Link to={`/mail/${selectedMailId}`}></Link>
+                // <MailDetails
+                // mailId={selectedMailId}
+                // onGoBack={() => setSelectedMailId(null)} />
+            }
             <div className='mail-folder-list'>
                 <button>📧Compose</button>
-                <MailFolderList unReadCount={setingUnReadCount(mails)}/>
+                <MailFolderList unReadCount={setingUnReadCount(mails)} />
                 {/* <MailCompose /> */}
             </div>
         </div>
