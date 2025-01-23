@@ -20,8 +20,16 @@ export function MailIndex() {
             .then(setMails)
     }, [filterBy])
 
-    function removeMail() {
-        console.log('removed!!!')
+    function removeMail(mailId) {
+        mailService.remove(mailId)
+            .then(() => {
+                setMails(mails => mails.filter(mail => mail.id !== mailId))
+                // showSuccessMsg(`mail removed successfully!`)
+            })
+            .catch(err => {
+                console.log('Problems removing mail:', err)
+                // showErrorMsg(`Problems removing mail (${mailId})`)
+            })
     }
 
     function onSelectedMailId(mailId) {
@@ -52,7 +60,8 @@ export function MailIndex() {
                 <MailList
                     mails={mails}
                     onRemove={removeMail}
-                    onSelectMail={onSelectedMailId} />)}
+                    onSelectMail={onSelectedMailId} />
+                )    }
             {selectedMailId &&
                navigate(`/mail/${selectedMailId}`)
                 // <Link to={`/mail/${selectedMailId}`}></Link>

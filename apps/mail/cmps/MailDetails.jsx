@@ -26,6 +26,20 @@ export function MailDetails() {
         })
     }
 
+    function removeMailD(mailId) {
+        mailService.remove(mailId)
+            .then(() => {
+                // setMail(mails => mails.filter(mail => mail.id !== mailId))
+                // showSuccessMsg(`mail removed successfully!`)
+                navigate(`/mail`)
+            })
+            .catch(err => {
+                console.log('Problems removing mail:', err)
+                // showErrorMsg(`Problems removing mail (${mailId})`)
+            })
+
+    }
+
     if (!mail) return
     return <section className='mails-list'>
         <button className='close'>
@@ -45,6 +59,7 @@ export function MailDetails() {
         </div>
         <div>{mail.to}</div>
         <div>{mail.body}</div>
+        <button onClick={() => removeMailD(mail.id)}>🗑️</button>
 
     </section>
 }
