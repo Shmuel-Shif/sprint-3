@@ -44,9 +44,28 @@ export function MailIndex() {
         mailService.save(mail)
     }
 
+    function onStarredMail(mail){
+        mail.isStarred = !mail.isStarred
+        mailService.save(mail)
+    }
+
     function setingUnReadCount(mails) {
         return mails.reduce((acc, mail) => {
             if (!mail.isRead) acc++
+            return acc
+        }, 0)
+    }
+
+    function setingStarredCount(mails) {
+        return mails.reduce((acc, mail) => {
+            if (mail.isStarred) acc++
+            return acc
+        }, 0)
+    }
+
+    function setingDraftCount(mails) {
+        return mails.reduce((acc, mail) => {
+            if (!mail.sentAt && mail.from === loggedinUser.email) acc++
             return acc
         }, 0)
     }
@@ -67,7 +86,8 @@ export function MailIndex() {
                     mails={mails}
                     onRemove={removeMail}
                     onSelectMail={onSelectedMailId}
-                    onReadMail={onReadMail} />
+                    onReadMail={onReadMail}
+                    onStarredMail={onStarredMail} />
                 )    }
             {selectedMailId &&
                navigate(`/mail/${selectedMailId}`)
@@ -77,8 +97,10 @@ export function MailIndex() {
                 // onGoBack={() => setSelectedMailId(null)} />
             }
             <div className='mail-folder-list'>
-            <Link to="/mail/compose"><button className='btn blue-btn'>✏️  Compose</button></Link>
-                <MailFolderList unReadCount={setingUnReadCount(mails)} />
+            <Link to="/mail/compose"><button className='btn blue-btn Compose-btn'>✏️  Compose</button></Link>
+                <MailFolderList unReadCount={setingUnReadCount(mails)}
+                 starredCount={setingStarredCount(mails)}
+                 draftCount={setingDraftCount(mails)}    />
                 {/* <MailCompose /> */}
             </div>
         </div>

@@ -81,7 +81,8 @@ function _createMails() {
                 sentAt: utilService.getRandomIntInclusive(1551133930594, 1737544572356),////
                 removedAt: null,
                 from: 'momo@momo.com',
-                to: 'user@appsus.com'
+                to: 'user@appsus.com',
+                isStarred: Math.random() > 0.7
             }
 
             mails.push(mail)
