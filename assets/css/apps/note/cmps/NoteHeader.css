@@ -1,0 +1,46 @@
+.header-keep {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly
+}
+
+.Hamburger-list {
+    margin: 0 0.8em;
+    font-size: 1.5em;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease
+}
+
+.Hamburger-list:hover {
+    transform: scale(1.1);
+}
+
+.header-keep .header-image {
+    width: 60px;
+}
+
+.header-none {
+    margin: 0 0.8em;
+    width: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease
+}
+
+.header-none:hover {
+    transform: scale(1.1);
+}
+
+.note-index input {
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    width: 35em;
+    display: block;
+    margin: 1em 1em;
+}
+
+.note-index input:focus {
+    border-color: #007bff;
+    outline: none;
+}

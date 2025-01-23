@@ -2,11 +2,11 @@
     columns: 3; 
     column-gap: 50px; 
     padding: 20px;
-    background: none;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     max-width: 1200px; 
     margin: 20px auto;
+    padding-right: 40px;
 }
 
 .note-list p {
@@ -35,6 +35,12 @@
     transform: translateY(-5px);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
+
+.note:focus {
+    outline: none;
+    border: none;
+}
+
 
 .note-input {
     width: 100%;
@@ -71,22 +77,6 @@
 
 .delete-btn:hover {
     transform: scale(1.30);
-}
-
-.note-index input {
-    padding: 10px;
-    margin: 10px 0;
-    font-size: 16px;
-    border-radius: 5px;
-    border: 1px solid #ddd;
-    max-width: 400px;
-    display: block;
-    margin: 10px auto;
-}
-
-.note-index input:focus {
-    border-color: #007bff;
-    outline: none;
 }
 
 .color-picker-btn {

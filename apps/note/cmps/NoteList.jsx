@@ -23,7 +23,7 @@ export function NoteList({ notes, onUpdateNote, onDeleteNote, onUpdateColor }) {
                             lineHeight: '1.5',
                             whiteSpace: 'pre-wrap',
                             wordBreak: 'break-word',
-                            outline: 'none',
+                            outline: 'none'
                         }}
                     >
                         {note.text}
@@ -43,7 +43,7 @@ export function NoteList({ notes, onUpdateNote, onDeleteNote, onUpdateColor }) {
                                 }
                             }}
                         >
-                            🖌️
+                            &#9998;
                         </button>
                         <button onClick={() => onDeleteNote(idx)} className="delete-btn">
                             🗑️

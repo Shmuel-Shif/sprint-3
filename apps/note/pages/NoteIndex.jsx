@@ -2,6 +2,7 @@ const { useState } = React
 
 import { NoteForm } from '../cmps/NoteForm.jsx'
 import { NoteList } from '../cmps/NoteList.jsx'
+import { NoteHeader } from '../cmps/NoteHeader.jsx'
 
 export function NoteIndex() {
     const [notes, setNotes] = useState([])
@@ -40,21 +41,10 @@ export function NoteIndex() {
 
     return (
         <section className="note-index">
-            
-            <div className="header-keep" >
-            {/* <img 
-                src="../assets/img/keep-512.png" 
-                alt="Header Image" 
-                className="logo-image" 
-            /> */}
-            <input
-                type="text"
-                placeholder="Search notes..."
-                value={searchTerm}
-                onChange={handleSearchChange}
+            <NoteHeader 
+            searchTerm={searchTerm} 
+            handleSearchChange={handleSearchChange} 
             />
-            </div>
-
             <NoteForm onAddNote={addNote} />
             <NoteList 
                 notes={filteredNotes} 
