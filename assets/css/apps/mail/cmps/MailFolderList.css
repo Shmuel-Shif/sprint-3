@@ -19,7 +19,8 @@
     cursor: pointer;
 }
 
-.mail-folder>li .selected {
+.mail-folder>li.selected {
     font-weight: bold;
-    background-color: lightblue;
+    background-color: rgba(107, 164, 238, 0.658);
+    border-radius: 2em;
 }

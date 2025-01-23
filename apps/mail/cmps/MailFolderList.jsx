@@ -20,7 +20,7 @@ export function MailFolderList({unReadCount ,starredCount , draftCount, filterBy
     // }
 
     return <ul className='mail-folder flex column clean-list'>
-        <li onClick={handleChange}>Inbox   <span>   {(unReadCount) ? unReadCount : ''}</span></li>
+        <li onClick={handleChange} className='selected'>Inbox   <span>   {(unReadCount) ? unReadCount : ''}</span></li>
         <li onClick={handleChange} name='isStarred' value={true}>Starred<span>   {(starredCount) ? starredCount : ''}</span></li>
         <li onClick={handleChange} name='from' value='user@appsus.coml'>Sent</li>
         <li onClick={handleChange}name='sendAt' value={false}>Draft <span>   {(draftCount) ? draftCount : ''}</span></li>
