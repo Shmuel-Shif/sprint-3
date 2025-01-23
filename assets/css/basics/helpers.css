@@ -35,3 +35,26 @@
 .gray{
     color: #5f6368;
 }
+
+.btn {
+    background-color:transparent;
+    color: #444444;
+    font-size: 1em;
+    /* padding: 0.35em 0.85em; */
+    border: none;
+    cursor: pointer;
+    border-radius: 2em;
+}
+
+.blue-btn{
+    background-color:DodgerBlue;
+    color: aliceblue;
+}
+
+.btn:hover{
+    background-color:rgba(128, 128, 128, 0.2);
+}
+
+.blue-btn:hover {
+    background-color: rgba(30, 143, 255, 0.801);
+}
