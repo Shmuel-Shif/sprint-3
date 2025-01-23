@@ -7,11 +7,13 @@ import { MailCompose } from '../cmps/MailCompose.jsx'
 
 const { useState, useEffect } = React
 const { Link, useSearchParams } = ReactRouterDOM
+const { useParams, useNavigate } = ReactRouter
 
 export function MailIndex() {
     const [mails, setMails] = useState([])
     const [filterBy, setFilterBy] = useState(mailService.getDefaultFilter())
     const [selectedMailId, setSelectedMailId] = useState(null)
+    const navigate = useNavigate()
 
     useEffect(() => {
         mailService.query(filterBy)
@@ -23,7 +25,9 @@ export function MailIndex() {
     }
 
     function onSelectedMailId(mailId) {
-        setSelectedMailId(mailId)
+        // setSelectedMailId(mailId)
+        navigate(`/mail/${mailId}`)
+
     }
 
     function setingUnReadCount(mails) {
@@ -50,7 +54,8 @@ export function MailIndex() {
                     onRemove={removeMail}
                     onSelectMail={onSelectedMailId} />)}
             {selectedMailId &&
-                <Link to={`/mail/${selectedMailId}`}></Link>
+               navigate(`/mail/${selectedMailId}`)
+                // <Link to={`/mail/${selectedMailId}`}></Link>
                 // <MailDetails
                 // mailId={selectedMailId}
                 // onGoBack={() => setSelectedMailId(null)} />

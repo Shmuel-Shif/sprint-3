@@ -40,21 +40,21 @@ export function MailCompose() {
 
     const { to, subject, body } = mail
     return <section>
-        <form onSubmit={onSave}>
+        <form onSubmit={onSave} className="flex column align-center">
             {/* <label className='bold-txt' htmlFor="From">From</label>
             <input onChange={handleChange} value={From}
                 id='From' type="text" name='From' /> */}
-
-            <label className='bold-txt' htmlFor="to">To</label>
-            <input onChange={handleChange} value={to}
-                id='to' type="email" name='to' />
+            <div>
+                <label className='bold-txt' htmlFor="to">To  </label>
+                <input onChange={handleChange} value={to}
+                    id='to' type="email" name='to' /></div>
 
             <input onChange={handleChange} value={subject}
                 id='subject' type="text" name='subject' placeholder='Subject' />
 
-            <input onChange={handleChange} value={body}
-                id='body' type="text" name='body' />
-           <button>Send</button>
+            <input className="mail-body" onChange={handleChange} value={body}
+                id='body' type="text" name='body'/>
+            <button>Send</button>
         </form>
     </section>
 }
