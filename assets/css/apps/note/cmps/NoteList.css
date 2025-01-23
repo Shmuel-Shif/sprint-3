@@ -22,7 +22,7 @@
     break-inside: avoid; 
     margin-bottom: 20px;
     padding: 20px;
-    background-color: #fff;
+    background-color: #af1d1d;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     font-family: 'Arial', sans-serif;
@@ -37,17 +37,22 @@
 }
 
 .note-input {
-    flex: 1;
+    width: 100%;
+    min-height: 40px; 
+    resize: none;
     padding: 10px;
+    font-size: 16px;
     border: 1px solid #ddd;
     border-radius: 5px;
-    font-size: 16px;
-    color: #333;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
     outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
     background-color: #f9f9f9;
-    margin-bottom: 20px;
+    overflow: auto; 
+    line-height: 1.5;
+    box-sizing: border-box;
+    word-wrap: break-word;
 }
+
 
 .note-input:focus {
     border-color: #007bff;
@@ -55,10 +60,9 @@
 }
 
 .delete-btn {
-    background-color: #e74c3c;
+    background: none;
     color: white;
     border: none;
-    padding: 8px 12px;
     border-radius: 5px;
     font-size: 14px;
     cursor: pointer;
@@ -66,8 +70,7 @@
 }
 
 .delete-btn:hover {
-    background-color: #c0392b;
-    transform: scale(1.05);
+    transform: scale(1.30);
 }
 
 .note-index input {
@@ -86,6 +89,20 @@
     outline: none;
 }
 
+.color-picker-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.color-picker-btn:hover {
+    transform: scale(1.30);
+}
+
+
 
 @media screen and (max-width: 768px) {
     .note-list {
@@ -98,3 +115,4 @@
         columns: 1; 
     }
 }
+
