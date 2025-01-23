@@ -1,1 +1,14 @@
  /* home */
+ .home{
+    font-family: Roboto, Arial, sans-serif;
+    margin-top: 100px;
+    justify-content: space-around;
+    font-size: 3rem;
+ }
+
+ .home img{
+    width: 250px;
+    border-radius: 40%;
+ }
+
+ 
