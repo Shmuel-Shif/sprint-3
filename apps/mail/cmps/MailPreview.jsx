@@ -1,6 +1,6 @@
 
 const { useEffect, useState } = React
-export function MailPreview({ mail,onSelectMail, onRemove }) {
+export function MailPreview({ mail,onSelectMail, onRemove , onReadMail }) {
     const [isOver, setIsOver]= useState(false)
 
     function onSetRemove(ev){
@@ -8,12 +8,13 @@ export function MailPreview({ mail,onSelectMail, onRemove }) {
         onRemove(mail.id)
     }
 
-    function onSetIsOver(){
-        setIsOver((isOver) => !isOver)
+    function onSetReadMail(ev){
+        ev.stopPropagation()
+        onReadMail(mail)
     }
 
     return <article className={`mail-preview grid ${(mail.isRead) ? 'read' : ''}`}
-     onClick={() => onSelectMail(mail.id)}
+     onClick={() => onSelectMail(mail)}
      onMouseOver={() =>setIsOver(true)} 
      onMouseOut={() =>setIsOver(false)} >
         <span className='mail-preview-from'>{mail.from}</span>
@@ -23,6 +24,6 @@ export function MailPreview({ mail,onSelectMail, onRemove }) {
         {!isOver && <span className='mail-preview-date'>{`${new Date(mail.sentAt).toDateString()}`}</span>}
         {isOver && <div className='buttens flex align-center space-between' >
         <button onClick={onSetRemove}>🗑️</button>
-        <button onClick={onSetRemove}>📧</button></div>}
+        <button onClick={onSetReadMail}>📧</button></div>}
     </article>
 }

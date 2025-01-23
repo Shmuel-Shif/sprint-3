@@ -1,6 +1,3 @@
-
-// • Allow deleting a mail (using the service)
-
 import { mailService } from "../services/mail.service.js"
 
 
@@ -19,11 +16,14 @@ export function MailDetails() {
 
     function loadMail() {
         mailService.get(params.mailId)
-        .then(setMail)
-        .catch(() => {
-            // showErrorMsg('Couldnt get mail...')
-            navigate(`/mail`)
-        })
+            .then((mail) => {
+                mail.isRead = true
+                setMail(mail)
+            })
+            .catch(() => {
+                // showErrorMsg('Couldnt get mail...')
+                navigate(`/mail`)
+            })
     }
 
     function removeMailD(mailId) {
@@ -43,16 +43,16 @@ export function MailDetails() {
     if (!mail) return
     return <section className='mails-list'>
         <button className='close'>
-                <Link to='/mail'>X</Link>
-            </button>
+            <Link to='/mail'>X</Link>
+        </button>
         <nav className='mail-details-nav'>
-                <Link to={`/mail/${mail.prevMailId}`}>
-                    <button><i className="fa-solid fa-arrow-left"></i></button>
-                </Link>
-                <Link to={`/mail/${mail.nextMailId}`}>
-                    <button><i className="fa-solid fa-arrow-right"></i></button>
-                </Link>
-            </nav>
+            <Link to={`/mail/${mail.prevMailId}`}>
+                <button><i className="fa-solid fa-arrow-left"></i></button>
+            </Link>
+            <Link to={`/mail/${mail.nextMailId}`}>
+                <button><i className="fa-solid fa-arrow-right"></i></button>
+            </Link>
+        </nav>
         <div className='bold'>{mail.subject}</div>
         <div>
             <div><span className='bold'>{mail.from}</span>{`   ${new Date(mail.sentAt).toDateString()}`}</div>

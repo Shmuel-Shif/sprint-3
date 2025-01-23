@@ -32,10 +32,16 @@ export function MailIndex() {
             })
     }
 
-    function onSelectedMailId(mailId) {
+    function onSelectedMailId(mail) { 
+        onReadMail(mail)
         // setSelectedMailId(mailId)
-        navigate(`/mail/${mailId}`)
+        navigate(`/mail/${mail.id}`)
 
+    }
+
+    function onReadMail(mail) {
+        mail.isRead = true
+        mailService.save(mail)
     }
 
     function setingUnReadCount(mails) {
@@ -60,7 +66,8 @@ export function MailIndex() {
                 <MailList
                     mails={mails}
                     onRemove={removeMail}
-                    onSelectMail={onSelectedMailId} />
+                    onSelectMail={onSelectedMailId}
+                    onReadMail={onReadMail} />
                 )    }
             {selectedMailId &&
                navigate(`/mail/${selectedMailId}`)
@@ -70,7 +77,7 @@ export function MailIndex() {
                 // onGoBack={() => setSelectedMailId(null)} />
             }
             <div className='mail-folder-list'>
-            <Link to="/mail/compose"><button className='add-book'>📧Compose</button></Link>
+            <Link to="/mail/compose"><button className='add-book'>✏️  Compose</button></Link>
                 <MailFolderList unReadCount={setingUnReadCount(mails)} />
                 {/* <MailCompose /> */}
             </div>

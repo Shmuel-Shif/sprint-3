@@ -6,6 +6,7 @@
     height: 2em;
     padding-left: 20px;
     border-top: 0.1px solid #dadce0ce;
+    cursor: pointer;
 }
 
 .mail-preview .buttens {
