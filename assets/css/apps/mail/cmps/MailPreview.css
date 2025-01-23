@@ -1,12 +1,14 @@
-.mail-preview{
-    grid-template-columns: 300px 1fr 160px 100px;
-    font-size: 1.2em;
+.mail-preview {
+   grid-template-columns: 300px 1fr 160px 100px;
+   font-size: 1.2em;
 
-    align-items: center;
-    height: 2em;
-    padding-left: 20px;
-    border-top: 0.1px solid #dadce0ce;
-    cursor: pointer;
+   align-items: center;
+   height: 2em;
+   padding-left: 20px;
+   border-top: 0.1px solid #dadce0ce;
+   cursor: pointer;
+   background-color: #fff;
+
 }
 
 .mail-preview .buttens {
@@ -15,21 +17,25 @@
 }
 
 
-.mail-preview.read{
-    background-color: #eaf1fb;
- }
+.mail-preview.read {
+   background-color: #eaf1fb;
+}
 
- .mail-preview-subject{
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    margin-right: 20px;
- }
+.mail-preview-subject {
+   white-space: nowrap;
+   overflow: hidden;
+   text-overflow: ellipsis;
+   margin-right: 20px;
+}
 
- .mail-preview:hover{
-    border: 1px solid #dadce083;
- }
+.mail-preview:hover {
+   border: 1px solid #dadce083;
+}
 
- .mail-preview:hover .buttens {
+.mail-preview:hover .buttens {
    display: inline-block;
+}
+
+.mail-preview-date{
+   font-size: 0.95em;
 }

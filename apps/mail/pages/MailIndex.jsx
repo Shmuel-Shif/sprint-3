@@ -58,7 +58,7 @@ export function MailIndex() {
     if (!mails) return <h2>Loading</h2>
     return (
         <div className='mails-container grid'>
-            <button className="btn-toggle-menu" >☰</button>
+            <button className="btn-toggle-menu btn" >☰</button>
             {/* onClick={toggleMenu()} */}
             <img src="../assets/img/Gmail_icon_(2020).svg.webp" className="logo" />
             <FilterMails onSetFilter={onSetFilter} filterBy={filterBy}/>
@@ -77,7 +77,7 @@ export function MailIndex() {
                 // onGoBack={() => setSelectedMailId(null)} />
             }
             <div className='mail-folder-list'>
-            <Link to="/mail/compose"><button className='add-book'>✏️  Compose</button></Link>
+            <Link to="/mail/compose"><button className='btn blue-btn'>✏️  Compose</button></Link>
                 <MailFolderList unReadCount={setingUnReadCount(mails)} />
                 {/* <MailCompose /> */}
             </div>
