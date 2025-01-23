@@ -9,7 +9,6 @@ const { useState, useEffect } = React
 const { Link } = ReactRouterDOM
 
 export function MailDetails() {
-    console.log(2)
     const [mail, setMail] = useState(null)
     const params = useParams()
     const navigate = useNavigate()
