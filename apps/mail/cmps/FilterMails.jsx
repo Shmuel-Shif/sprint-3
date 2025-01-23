@@ -9,14 +9,12 @@ export function FilterMails({ filterBy, onSetFilter }) {
     }, [filterByToEdit])
 
     function handleChange({ target }) {
-        console.log(target)
         let { name: field, value, type } = target
         setFilterByToEdit(prevFilter => ({ ...prevFilter, [field]: value }))
     }
 
     function onSubmit(ev) {
         ev.preventDefault()
-        console.log('Submit filter')
         onSetFilter(filterByToEdit)
     }
 
