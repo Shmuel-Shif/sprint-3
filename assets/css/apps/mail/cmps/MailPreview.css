@@ -1,5 +1,5 @@
 .mail-preview {
-   grid-template-columns: 300px 1fr 160px;
+   grid-template-columns: 35px 300px 1fr 160px;
    font-size: 1.2em;
 
    align-items: center;
