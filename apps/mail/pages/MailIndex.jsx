@@ -32,7 +32,7 @@ export function MailIndex() {
             })
     }
 
-    function onSelectedMailId(mail) { 
+    function onSelectedMailId(mail) {
         onReadMail(mail)
         // setSelectedMailId(mailId)
         navigate(`/mail/${mail.id}`)
@@ -44,7 +44,7 @@ export function MailIndex() {
         mailService.save(mail)
     }
 
-    function onStarredMail(mail){
+    function onStarredMail(mail) {
         mail.isStarred = !mail.isStarred
         mailService.save(mail)
     }
@@ -80,7 +80,7 @@ export function MailIndex() {
             <button className="btn-toggle-menu btn" >☰</button>
             {/* onClick={toggleMenu()} */}
             <img src="../assets/img/Gmail_icon_(2020).svg.webp" className="logo" />
-            <FilterMails onSetFilter={onSetFilter} filterBy={filterBy}/>
+            <FilterMails onSetFilter={onSetFilter} filterBy={filterBy} />
             {!selectedMailId && (
                 <MailList
                     mails={mails}
@@ -88,19 +88,21 @@ export function MailIndex() {
                     onSelectMail={onSelectedMailId}
                     onReadMail={onReadMail}
                     onStarredMail={onStarredMail} />
-                )    }
+            )}
             {selectedMailId &&
-               navigate(`/mail/${selectedMailId}`)
+                navigate(`/mail/${selectedMailId}`)
                 // <Link to={`/mail/${selectedMailId}`}></Link>
                 // <MailDetails
                 // mailId={selectedMailId}
                 // onGoBack={() => setSelectedMailId(null)} />
             }
             <div className='mail-folder-list'>
-            <Link to="/mail/compose"><button className='btn blue-btn Compose-btn'>✏️  Compose</button></Link>
+                <Link to="/mail/compose"><button className='btn blue-btn Compose-btn'>✏️  Compose</button></Link>
                 <MailFolderList unReadCount={setingUnReadCount(mails)}
-                 starredCount={setingStarredCount(mails)}
-                 draftCount={setingDraftCount(mails)}    />
+                    starredCount={setingStarredCount(mails)}
+                    draftCount={setingDraftCount(mails)}
+                    onSetFilter={onSetFilter}
+                    filterBy={filterBy} />
                 {/* <MailCompose /> */}
             </div>
         </div>
