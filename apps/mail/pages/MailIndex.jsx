@@ -65,7 +65,7 @@ export function MailIndex() {
 
     function setingDraftCount(mails) {
         return mails.reduce((acc, mail) => {
-            if (!mail.sentAt && mail.from === loggedinUser.email) acc++
+            if (!mail.sentAt && mail.from === 'user@appsus.com') acc++
             return acc
         }, 0)
     }

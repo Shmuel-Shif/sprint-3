@@ -27,14 +27,31 @@ function query(filterBy = {}) {
                 mails = mails.filter(mail => regExp.test(mail.subject) || regExp.test(mail.body))
             }
             if (filterBy.isRead) {
-                mails = mails.filter(mail => mail.isRead) /// === true
+                mails = mails.filter(mail => mail.isRead) 
             } else if (filterBy.isRead === false) {
-                mails = mails.filter(mail => mail.isRead === false) /// === true
+                mails = mails.filter(mail => mail.isRead === false) 
             }
             if (filterBy.isStarred) {
-                mails = mails.filter(mail => mail.isStarred) /// === true
+                mails = mails.filter(mail => mail.isStarred)
             } else if (filterBy.isStarred === false) {
-                mails = mails.filter(mail => mail.isStarred === false) /// === true
+                mails = mails.filter(mail => mail.isStarred === false)
+            }
+            switch (filterBy.status) {
+                case 'inbox':
+                    mails = mails.filter(mail => mail.sentAt && !mail.isTrash)
+                    break
+                case 'starred':
+                    mails = mails.filter(mail => mail.isStarred)
+                    break
+                case 'sent':
+                    mails = mails.filter(mail => mail.from === loggedinUser.email && mail.sentAt && !mail.isTrash )
+                    break
+                case 'trash':
+                    mails = mails.filter(mail => mail.isTrash)
+                    break
+                case 'draft':
+                    mails = mails.filter(mail =>mail.from === loggedinUser.email && mail.sentAt === null)
+                    break
             }
             return mails
         })
@@ -221,7 +238,7 @@ function _createMails() {
                 "from": "susan@party.com",
                 "to": "user@appsus.com",
                 "isStarred": false,
-                "isTrash": false
+                "isTrash": true
             },
             {
                 "id": "e110",
@@ -299,7 +316,7 @@ function _createMails() {
                 "from": "user@appsus.com",
                 "to": "devteam@workplace.com",
                 "isStarred": false,
-                "isTrash": false
+                "isTrash": true
             },
             {
                 "id": "e116",
@@ -359,7 +376,7 @@ function _createMails() {
                 "subject": "Lunch next week?",
                 "body": "Let’s have lunch next week. I’ll be free on Tuesday.",
                 "isRead": false,
-                "sentAt": 139539577256 + 1565902000345,
+                "sentAt": null,
                 "removedAt": null,
                 "from": "user@appsus.com",
                 "to": "michael@friends.com",
@@ -476,7 +493,7 @@ function _createMails() {
                 "subject": "Travel arrangements",
                 "body": "I’ve booked your flights for next week’s conference. All details are in the email. Let me know if anything needs adjusting.",
                 "isRead": true,
-                "sentAt": 139539577256 + 1572002430100,
+                "sentAt": null,
                 "removedAt": null,
                 "from": "user@appsus.com",
                 "to": "colleague@company.com",
