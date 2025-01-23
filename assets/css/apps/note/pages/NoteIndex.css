@@ -1,1 +1,10 @@
- /* note index */
+.header-keep {
+    display: flex;
+    align-items: center;
+    gap: 10px; 
+}
+
+.logo-image {
+    width: auto;
+    height: 3em;
+}
