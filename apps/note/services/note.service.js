@@ -1,6 +1,10 @@
 import { storageService } from '../../../services/async-storage.service.js'
+import { storageServiceUtils } from '../../../services/storage.service.js'
+
+
 
 const NOTE_KEY = 'notes'
+_createDemoNotes()
 
 export const noteService = {
     query,
@@ -13,7 +17,7 @@ export const noteService = {
 }
 
 function query() {
-    if (!localStorage.getItem(NOTE_KEY)) _createDemoNotes()
+    if (!storageServiceUtils.loadFromStorage(NOTE_KEY)) _createDemoNotes()
     return storageService.query(NOTE_KEY)
 }
 
@@ -60,39 +64,44 @@ function getEmptyNote(type = 'NoteTxt') {
 }
 
 function _createDemoNotes() {
-    const demoNotes = [
-        {
-            id: 'n101',
-            createdAt: Date.now(),
-            type: 'NoteTxt',
-            isPinned: true,
-            style: { backgroundColor: '#00d' },
-            info: { txt: 'Fullstack Me Baby!' }
-        },
-        {
-            id: 'n102',
-            createdAt: Date.now(),
-            type: 'NoteImg',
-            isPinned: false,
-            style: { backgroundColor: '#00d' },
-            info: { url: 'http://some-img/me', title: 'Bobi and Me' }
-        },
-        {
-            id: 'n103',
-            createdAt: Date.now(),
-            type: 'NoteTodos',
-            isPinned: false,
-            style: { backgroundColor: '#ffffff' },
-            info: {
-                title: 'Get my stuff together',
-                todos: [
-                    { txt: 'Driving license', doneAt: null },
-                    { txt: 'Coding power', doneAt: 187111111 }
-                ]
+    console.log('creat not')
+    let notes = storageServiceUtils.loadFromStorage(NOTE_KEY)
+    console.log('note is' , notes)
+    if (!notes || !notes.length) {
+        let demoNotes = [
+            {
+                id: 'n101',
+                createdAt: Date.now(),
+                type: 'NoteTxt',
+                isPinned: true,
+                style: { backgroundColor: '#00d' },
+                info: { txt: 'Fullstack Me Baby!' }
+            },
+            {
+                id: 'n102',
+                createdAt: Date.now(),
+                type: 'NoteImg',
+                isPinned: false,
+                style: { backgroundColor: '#00d' },
+                info: { url: 'http://some-img/me', title: 'Bobi and Me' }
+            },
+            {
+                id: 'n103',
+                createdAt: Date.now(),
+                type: 'NoteTodos',
+                isPinned: false,
+                style: { backgroundColor: '#ffffff' },
+                info: {
+                    title: 'Get my stuff together',
+                    todos: [
+                        { txt: 'Driving license', doneAt: null },
+                        { txt: 'Coding power', doneAt: 187111111 }
+                    ]
+                }
             }
-        }
-    ]
-    storageService.saveToStorage(NOTE_KEY, demoNotes)
+        ]
+        storageServiceUtils.saveToStorage(NOTE_KEY, demoNotes)
+    }
 }
 
 function _makeId(length = 6) {

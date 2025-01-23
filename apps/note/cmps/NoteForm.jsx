@@ -1,13 +1,17 @@
-const { useState } = React
+const { useState, useRef } = React
 
 export function NoteForm({ onAddNote }) {
     const [text, setText] = useState('')
+    const textareaRef = useRef(null) 
 
     function handleSubmit(ev) {
         ev.preventDefault()
         if (!text.trim()) return 
         onAddNote(text)
         setText('')
+        if (textareaRef.current) {
+            textareaRef.current.style.height = 'auto'
+        }
     }
 
     function autoResize(ev) {
@@ -18,6 +22,7 @@ export function NoteForm({ onAddNote }) {
     return (
         <form className="note-form" onSubmit={handleSubmit}>
             <textarea
+                ref={textareaRef} 
                 placeholder="Enter a note..."
                 value={text}
                 onChange={(ev) => setText(ev.target.value)}
