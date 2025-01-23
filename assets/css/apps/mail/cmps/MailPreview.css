@@ -1,12 +1,19 @@
 .mail-preview{
-    grid-template-columns: 300px 1fr 160px;
+    grid-template-columns: 300px 1fr 160px 100px;
     font-size: 1.2em;
 
     align-items: center;
     height: 2em;
-    margin-left: 20px;
-
+    padding-left: 20px;
+    border-top: 0.1px solid #dadce0ce;
+    cursor: pointer;
 }
+
+.mail-preview .buttens {
+   display: none;
+   flex-flow: row;
+}
+
 
 .mail-preview.read{
     background-color: #eaf1fb;
@@ -18,3 +25,11 @@
     text-overflow: ellipsis;
     margin-right: 20px;
  }
+
+ .mail-preview:hover{
+    border: 1px solid #dadce083;
+ }
+
+ .mail-preview:hover .buttens {
+   display: inline-block;
+}

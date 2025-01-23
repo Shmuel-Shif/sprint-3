@@ -16,6 +16,7 @@ export const mailService = {
     remove,
     save,
     getDefaultFilter,
+    getEmptyMail,
 }
 
 function query(filterBy = {}) {
@@ -47,6 +48,7 @@ function save(mail) {
     if (mail.id) {
         return storageService.put(MAIL_KEY, mail)
     } else {
+        mail.sentAt = Date.now()
         return storageService.post(MAIL_KEY, mail)
     }
 }
@@ -100,6 +102,20 @@ function _setNextPrevMailId(mail) {
             mail.prevMailId = prevMail.id
             return mail
         })
+}
+
+function getEmptyMail(createdAt = Date.now(),subject = '', body = '', isRead = false , to = '') {
+    return {
+        // id: utilService.makeId(),
+        createdAt, 
+        subject,
+        body,
+        isRead,
+        // sentAt,
+        removedAt: null,
+        from: loggedinUser.email,
+        to,
+    }
 }
 
 // function getFilterFromSearchParams(searchParams) {

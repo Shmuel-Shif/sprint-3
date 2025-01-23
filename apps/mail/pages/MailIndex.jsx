@@ -7,23 +7,41 @@ import { MailCompose } from '../cmps/MailCompose.jsx'
 
 const { useState, useEffect } = React
 const { Link, useSearchParams } = ReactRouterDOM
+const { useParams, useNavigate } = ReactRouter
 
 export function MailIndex() {
     const [mails, setMails] = useState([])
     const [filterBy, setFilterBy] = useState(mailService.getDefaultFilter())
     const [selectedMailId, setSelectedMailId] = useState(null)
+    const navigate = useNavigate()
 
     useEffect(() => {
         mailService.query(filterBy)
             .then(setMails)
     }, [filterBy])
 
-    function removeMail() {
-        console.log('removed!!!')
+    function removeMail(mailId) {
+        mailService.remove(mailId)
+            .then(() => {
+                setMails(mails => mails.filter(mail => mail.id !== mailId))
+                // showSuccessMsg(`mail removed successfully!`)
+            })
+            .catch(err => {
+                console.log('Problems removing mail:', err)
+                // showErrorMsg(`Problems removing mail (${mailId})`)
+            })
     }
 
-    function onSelectedMailId(mailId) {
-        setSelectedMailId(mailId)
+    function onSelectedMailId(mail) { 
+        onReadMail(mail)
+        // setSelectedMailId(mailId)
+        navigate(`/mail/${mail.id}`)
+
+    }
+
+    function onReadMail(mail) {
+        mail.isRead = true
+        mailService.save(mail)
     }
 
     function setingUnReadCount(mails) {
@@ -48,15 +66,18 @@ export function MailIndex() {
                 <MailList
                     mails={mails}
                     onRemove={removeMail}
-                    onSelectMail={onSelectedMailId} />)}
+                    onSelectMail={onSelectedMailId}
+                    onReadMail={onReadMail} />
+                )    }
             {selectedMailId &&
-                <Link to={`/mail/${selectedMailId}`}></Link>
+               navigate(`/mail/${selectedMailId}`)
+                // <Link to={`/mail/${selectedMailId}`}></Link>
                 // <MailDetails
                 // mailId={selectedMailId}
                 // onGoBack={() => setSelectedMailId(null)} />
             }
             <div className='mail-folder-list'>
-                <button>📧Compose</button>
+            <Link to="/mail/compose"><button className='add-book'>✏️  Compose</button></Link>
                 <MailFolderList unReadCount={setingUnReadCount(mails)} />
                 {/* <MailCompose /> */}
             </div>
