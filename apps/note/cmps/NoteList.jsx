@@ -24,6 +24,7 @@ export function NoteList({ notes, onUpdateNote, onDeleteNote, onUpdateColor }) {
                             whiteSpace: 'pre-wrap',
                             wordBreak: 'break-word',
                             outline: 'none'
+
                         }}
                     >
                         {note.text}
