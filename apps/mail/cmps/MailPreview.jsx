@@ -23,7 +23,7 @@ export function MailPreview({ mail,onSelectMail, onRemove , onReadMail }) {
         </div>
         {!isOver && <span className='mail-preview-date'>{`${new Date(mail.sentAt).toDateString()}`}</span>}
         {isOver && <div className='buttens flex align-center space-between' >
-        <button onClick={onSetRemove}>🗑️</button>
-        <button onClick={onSetReadMail}>📧</button></div>}
+        <button className='btn' onClick={onSetRemove}>🗑️</button>
+        <button className='btn' onClick={onSetReadMail}>📧</button></div>}
     </article>
 }

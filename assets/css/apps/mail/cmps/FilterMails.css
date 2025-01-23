@@ -1,4 +1,4 @@
-.filter-mails{
+.filter-mails {
     grid-column: 3;
     grid-row: 1;
     width: auto;
@@ -6,6 +6,21 @@
     align-self: center;
     justify-self: start;
     margin-left: 2em;
+    border-radius: 7em;
+}
+
+.search-bar {
     background-color: #eaf1fb;
-    border-radius: 1em;
+    width: 14em;
+    height: 2em;
+    border-radius: 7em;
+    border: 0px solid dodgerblue;
+    font-size: 1.2em;
+    outline-width: 0;
+    padding-left: 20px;
+}
+
+
+.search-bar:focus {
+    outline-width: 0;
 }

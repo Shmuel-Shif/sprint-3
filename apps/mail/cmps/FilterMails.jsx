@@ -20,9 +20,10 @@ export function FilterMails({ filterBy, onSetFilter }) {
 
     const { txt } = filterByToEdit
     return <div className='filter-mails'>
-        <form onSubmit={onSubmit}><input
+        <form onSubmit={onSubmit}>
+            <input className='search-bar'
             type="text"
-            placeholder="Search mails..."
+            placeholder="🔍 Search mail"
             name="txt"
             value={txt}
             onChange={handleChange}

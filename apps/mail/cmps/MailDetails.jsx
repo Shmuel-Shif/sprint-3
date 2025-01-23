@@ -42,15 +42,15 @@ export function MailDetails() {
 
     if (!mail) return
     return <section className='mails-list'>
-        <button className='close'>
+        <button className='close btn'>
             <Link to='/mail'>X</Link>
         </button>
         <nav className='mail-details-nav'>
             <Link to={`/mail/${mail.prevMailId}`}>
-                <button><i className="fa-solid fa-arrow-left"></i></button>
+                <button className='btn'><i className="fa-solid fa-arrow-left"></i></button>
             </Link>
             <Link to={`/mail/${mail.nextMailId}`}>
-                <button><i className="fa-solid fa-arrow-right"></i></button>
+                <button className='btn'><i className="fa-solid fa-arrow-right"></i></button>
             </Link>
         </nav>
         <div className='bold'>{mail.subject}</div>
@@ -59,7 +59,7 @@ export function MailDetails() {
         </div>
         <div>{mail.to}</div>
         <div>{mail.body}</div>
-        <button onClick={() => removeMailD(mail.id)}>🗑️</button>
+        <button className='btn' onClick={() => removeMailD(mail.id)}>🗑️</button>
 
     </section>
 }

@@ -1,16 +1,18 @@
  /* mail index  */
- .mails-container{
-    grid-template-columns: 70px 250px 1fr  ;
-    grid-template-rows:  75px 1fr;
+ .mails-container {
+    grid-template-columns: 70px 250px 1fr;
+    grid-template-rows: 75px 1fr;
     color: #202124;
-    background-color: #f6f8fc;
     width: 100%;
     height: auto;
     margin-bottom: 0;
     font-family: Roboto, Arial, sans-serif;
+    height: 92vh;
+    background-color: #f6f8fc;
+
  }
 
- .logo{
+ .mails-container .logo {
     grid-column: 2;
     grid-row: 1;
     width: auto;
@@ -20,10 +22,9 @@
     padding-left: 20px;
  }
 
- .btn-toggle-menu{
-   width: 2em;
-   height: 2em;
-   align-self: center;
-   justify-self: center;
-
+ .btn-toggle-menu {
+    width: 2em;
+    height: 2em;
+    align-self: center;
+    justify-self: center;
  }

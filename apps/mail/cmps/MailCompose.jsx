@@ -54,7 +54,7 @@ export function MailCompose() {
 
             <input className="mail-body" onChange={handleChange} value={body}
                 id='body' type="text" name='body'/>
-            <button>Send</button>
+            <button className='btn blue-btn'>Send</button>
         </form>
     </section>
 }
