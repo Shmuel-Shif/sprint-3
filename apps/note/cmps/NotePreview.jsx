@@ -1,5 +1,7 @@
+import { NoteVideo } from '../cmps/NoteVideo.jsx'
+import { NoteImg } from '../cmps/NoteImg.jsx'
 
-export function NotePreview({ note, idx, onUpdateNote, onDeleteNote, onUpdateColor, onPinNote }) {
+export function NotePreview({ note, idx, onUpdateNote, onDeleteNote, onUpdateColor, onPinNote, onDuplicateNote }) {
     return (
         <div
             className="note"
@@ -14,7 +16,7 @@ export function NotePreview({ note, idx, onUpdateNote, onDeleteNote, onUpdateCol
             <div
                 contentEditable
                 suppressContentEditableWarning
-                onBlur={(ev) => onUpdateNote(idx, ev.target.textContent)}
+                onBlur={(ev) => onUpdateNote(idx, ev.target.innerHTML)}
                 style={{
                     fontSize: '16px',
                     lineHeight: '1.5',
@@ -23,8 +25,18 @@ export function NotePreview({ note, idx, onUpdateNote, onDeleteNote, onUpdateCol
                     outline: 'none',
                 }}
             >
-                {note.text}
+                <div
+                    dangerouslySetInnerHTML={{
+                        __html: note.text
+                            .replace(/(\r\n|\n|\r)/g, '<br />') 
+                            .replace(/(^|\n)- (.*?)(?=\n|$)/g, '<ul><li>$2</li></ul>') 
+                    }}
+                />
             </div>
+
+            {note.imageUrl && <NoteImg url={note.imageUrl} />}
+            {note.videoUrl && <NoteVideo url={note.videoUrl} />}
+
             <div style={{ position: 'absolute', top: '8px', right: '8px', display: 'flex', gap: '5px' }}>
                 <button
                     className="color-picker-btn"
@@ -43,6 +55,9 @@ export function NotePreview({ note, idx, onUpdateNote, onDeleteNote, onUpdateCol
                 </button>
                 <button onClick={() => onPinNote(idx)} className="pin-btn">
                     {note.isPinned ? '📌' : '📍'}
+                </button>
+                <button onClick={() => onDuplicateNote(note)} className="duplicate-btn">
+                    📑
                 </button>
             </div>
         </div>

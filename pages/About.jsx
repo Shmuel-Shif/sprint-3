@@ -4,7 +4,7 @@ export function About() {
 
         <div className="my-img">
             <img 
-                src="../assets/img/WhatsApp Image 2024-08-15 at 18.48.06.jpeg" 
+                src="../assets/img/WhatsApp Image 2025-01-24 at 14.53.48.jpeg" 
                 alt="Header icon" 
                 className="my-profile"
             />

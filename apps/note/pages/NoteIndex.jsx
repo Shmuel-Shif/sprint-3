@@ -10,8 +10,21 @@ export function NoteIndex() {
     const [searchTerm, setSearchTerm] = useState('')
 
     function addNote(newNote) {
-        setNotes([...notes, { text: newNote, backgroundColor: '#ffffff', type: 'general', isPinned: false }])
+        if (!newNote.text.trim() && !newNote.imageUrl && !newNote.videoUrl) return
+        setNotes((prevNotes) => [
+            ...prevNotes,
+            { 
+                id: Date.now(), 
+                text: newNote.text, 
+                backgroundColor: '#ffffff', 
+                type: 'general', 
+                isPinned: false,
+                imageUrl: newNote.imageUrl,  
+                videoUrl: newNote.videoUrl  
+            }
+        ])
     }
+    
 
     function updateNote(idx, updatedText) {
         if (!updatedText.trim()) return
@@ -41,36 +54,52 @@ export function NoteIndex() {
         setSearchTerm(ev.target.value)
     }
 
-    const filteredNotes = notes.filter(note => note.text.toLowerCase().includes(searchTerm.toLowerCase()))
+    function onDuplicateNote(note) {
+        const duplicatedNote = { ...note, id: Date.now() }
+        setNotes((prevNotes) => [...prevNotes, duplicatedNote])
+    }
+
+    const filteredNotes = notes.filter(note =>
+        note.text.toLowerCase().includes(searchTerm.toLowerCase())
+    )
+
     const pinnedNotes = filteredNotes.filter(note => note.isPinned)
     const unpinnedNotes = filteredNotes.filter(note => !note.isPinned)
 
     return (
         <section className="note-index">
-            <NoteHeader searchTerm={searchTerm} handleSearchChange={handleSearchChange} />
+            <NoteHeader 
+                searchTerm={searchTerm} 
+                handleSearchChange={handleSearchChange} 
+            />
             <NoteForm onAddNote={addNote} />
+
             {pinnedNotes.length > 0 && (
                 <div>
-                    <NoteList
-                        notes={pinnedNotes}
-                        onUpdateNote={updateNote}
-                        onDeleteNote={deleteNote}
+                    <NoteList 
+                        notes={pinnedNotes} 
+                        onUpdateNote={updateNote} 
+                        onDeleteNote={deleteNote} 
                         onUpdateColor={updateNoteColor}
-                        onPinNote={onPinNote}
+                        onPinNote={onPinNote} 
+                        onDuplicateNote={onDuplicateNote}
                     />
-                    <h6 className="job-title">Pinned Notes</h6>
+                    <h6 className="Job-title">Pinned Notes</h6>
                 </div>
+
             )}
+
             {unpinnedNotes.length > 0 ? (
                 <div>
-                    <NoteList
-                        notes={unpinnedNotes}
-                        onUpdateNote={updateNote}
-                        onDeleteNote={deleteNote}
+                    <NoteList 
+                        notes={unpinnedNotes} 
+                        onUpdateNote={updateNote} 
+                        onDeleteNote={deleteNote} 
                         onUpdateColor={updateNoteColor}
-                        onPinNote={onPinNote}
+                        onPinNote={onPinNote} 
+                        onDuplicateNote={onDuplicateNote}
                     />
-                    <h6 className="job-title">Other Notes</h6>
+                    <h6 className="Job-title">Other Notes</h6>
                 </div>
             ) : (
                 <NotesMessage />
