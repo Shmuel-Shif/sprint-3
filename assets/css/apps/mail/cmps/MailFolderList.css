@@ -16,9 +16,11 @@
 .mail-folder>li:hover {
     background-color: rgba(128, 128, 128, 0.2);
     border-radius: 2em;
+    cursor: pointer;
 }
 
-.mail-folder>li .selected {
+.mail-folder>li.selected {
     font-weight: bold;
-    background-color: lightblue;
+    background-color: rgba(107, 164, 238, 0.658);
+    border-radius: 2em;
 }
