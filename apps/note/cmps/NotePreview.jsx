@@ -37,7 +37,7 @@ export function NotePreview({ note, idx, onUpdateNote, onDeleteNote, onUpdateCol
             {note.imageUrl && <NoteImg url={note.imageUrl} />}
             {note.videoUrl && <NoteVideo url={note.videoUrl} />}
 
-            <div style={{ position: 'absolute', top: '8px', right: '8px', display: 'flex', gap: '5px' }}>
+            <div className="note-button">
                 <button
                     className="color-picker-btn"
                     onClick={() => document.getElementById(`color-picker-${idx}`).click()}

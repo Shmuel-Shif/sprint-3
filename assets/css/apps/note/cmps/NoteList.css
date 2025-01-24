@@ -22,7 +22,6 @@
     break-inside: avoid; 
     margin-bottom: 20px;
     padding: 20px;
-    background-color: #af1d1d;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     font-family: 'Arial', sans-serif;
@@ -41,6 +40,12 @@
     border: none;
 }
 
+.note-button {
+    display: flex;
+    justify-content: right;
+    background-color: #f5f4f4;
+    border-radius: 12px;
+}
 
 .note-input {
     width: 100%;

@@ -10,8 +10,14 @@
     width: 10em;
     opacity: 0.1; 
     padding: 1em;
+    transition: none;
+}
+
+.no-pinned-notes-message img:hover {
+    transform: none;
 }
 
 .no-pinned-notes-message h1 {
     opacity: 0.3; 
+    cursor: pointer;
 }
