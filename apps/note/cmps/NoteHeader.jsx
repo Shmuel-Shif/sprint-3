@@ -11,7 +11,7 @@ export function NoteHeader ({ searchTerm, handleSearchChange }){
 
             <input
                 type="text"
-                placeholder="&#10061;Search notes..."
+                placeholder="🔍Search notes..."
                 value={searchTerm}
                 onChange={handleSearchChange}
             />
