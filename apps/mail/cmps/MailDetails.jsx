@@ -59,7 +59,7 @@ export function MailDetails() {
         </div>
         <div>{mail.to}</div>
         <div>{mail.body}</div>
-        <button className='btn' onClick={() => removeMailD(mail.id)}>🗑️</button>
+        <button className='btn' onClick={() => removeMailD(mail.id)}><i class="fa-solid fa-trash"></i></button>
 
     </section>
 }

@@ -22,7 +22,7 @@ export function FilterMails({ filterBy, onSetFilter }) {
     return <div className='filter-mails'>
         <form onSubmit={onSubmit}>
             <input className='search-bar'
-            type="text"
+            type="search"
             placeholder="🔍 Search mail"
             name="txt"
             value={txt}

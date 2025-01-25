@@ -1,6 +1,4 @@
 .mail-preview {
-   font-size: 1.2em;
-
    align-items: center;
    height: 2em;
    padding-left: 20px;
@@ -18,13 +16,14 @@
    white-space: nowrap;
    overflow: hidden;
    text-overflow: ellipsis;
-   margin-right: 20px;
+  
 }
 
 .mail-preview-date{
-   font-size: 0.85em;
+
    color: #6f7175f6;
    display: block;
+   
 }
 
 .mails-list>ul>li:first-child article{
