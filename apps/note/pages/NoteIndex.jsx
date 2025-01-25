@@ -103,8 +103,8 @@ export function NoteIndex() {
 
             {unpinnedNotes.length > 0 ? (
                 <div>
-                    <NoteList 
-                        notes={unpinnedNotes} 
+                    <NoteList
+                        notes={filteredNotes} 
                         onUpdateNote={updateNote} 
                         onDeleteNote={deleteNote} 
                         onUpdateColor={updateNoteColor}

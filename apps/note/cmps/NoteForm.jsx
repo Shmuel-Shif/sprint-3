@@ -10,16 +10,20 @@ export function NoteForm({ onAddNote }) {
         ev.preventDefault()
         if (!text.trim() && !url.trim()) return
         let newNote = { text, type: noteType }
+    
         if (noteType === 'image') {
             newNote.imageUrl = url
         } else if (noteType === 'video') {
-            newNote.videoUrl = url
+            const videoId = url.split('youtu.be/')[1].split('?')[0]
+            newNote.videoUrl = `https://www.youtube.com/embed/${videoId}`
         }
+    
         onAddNote(newNote)
         setText('')
         setUrl('')
         if (textareaRef.current) textareaRef.current.style.height = 'auto'
     }
+    
     
 
     function autoResize(ev) {

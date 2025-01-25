@@ -4,7 +4,6 @@ export function NoteImg({ url }) {
             <img 
                 src={url} 
                 alt="Note Image" 
-                style={{ maxWidth: '100%', maxHeight: '200px', objectFit: 'cover' }} 
             />
         </div>
     )
