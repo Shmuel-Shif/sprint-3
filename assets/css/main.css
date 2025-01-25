@@ -34,9 +34,3 @@
 @import './apps/mail/cmps/MailList.css';
 @import './apps/mail/cmps/MailPreview.css';
 @import './apps/mail/cmps/MailCompose.css';
-
-ul {
-    list-style-type: disc; /* או "circle", "square" - אפשר לבחור את סוג הנקודות */
-    padding-left: 20px; /* דאג לרווח */
-}
-
