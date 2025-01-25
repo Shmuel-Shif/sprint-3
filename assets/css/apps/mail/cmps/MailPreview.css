@@ -44,3 +44,9 @@
 background-color: rgba(151, 148, 148, 0.397);
 border-radius: 2em;
 }
+
+.mails-list>ul>li:first-child article{
+   border-top: 0px solid #dadce0ce;
+   border-top-right-radius: 1.5em;
+   border-top-left-radius: 1.5em;
+}
