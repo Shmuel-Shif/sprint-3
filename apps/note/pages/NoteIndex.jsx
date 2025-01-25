@@ -1,13 +1,27 @@
-const { useState } = React
+const { useState, useEffect  } = React
 
+import { storageServiceUtils } from '../../../services/storage.service.js'
 import { NoteForm } from '../cmps/NoteForm.jsx'
 import { NoteList } from '../cmps/NoteList.jsx'
 import { NoteHeader } from '../cmps/NoteHeader.jsx'
 import { NotesMessage } from '../cmps/NotesMessage.jsx'
 
 export function NoteIndex() {
-    const [notes, setNotes] = useState([])
+    const [notes, setNotes] = useState([]) 
     const [searchTerm, setSearchTerm] = useState('')
+
+    const { loadFromStorage, saveToStorage } = storageServiceUtils
+
+    useEffect(() => {
+        const savedNotes = loadFromStorage('notes') || []
+        setNotes(savedNotes)
+    }, [])
+
+    useEffect(() => {
+        if (notes.length > 0) {
+            saveToStorage('notes', notes)
+        }
+    }, [notes])
 
     function addNote(newNote) {
         if (!newNote.text.trim() && !newNote.imageUrl && !newNote.videoUrl) return
@@ -24,7 +38,6 @@ export function NoteIndex() {
             }
         ])
     }
-    
 
     function updateNote(idx, updatedText) {
         if (!updatedText.trim()) return
@@ -86,7 +99,6 @@ export function NoteIndex() {
                     />
                     <h6 className="Job-title">Pinned Notes</h6>
                 </div>
-
             )}
 
             {unpinnedNotes.length > 0 ? (
