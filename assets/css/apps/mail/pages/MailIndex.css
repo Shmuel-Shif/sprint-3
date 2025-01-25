@@ -1,7 +1,7 @@
  /* mail index  */
  .mails-container {
-    /* grid-template-columns: 70px 250px 1fr; */
-    grid-template-rows: 75px 1fr;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 10fr;
     color: #202124;
     width: 100%;
     height: auto;

@@ -1,6 +1,23 @@
 /* Mobile Only */
 @media (max-width: 900px) {
-    
+    .mail-preview {
+    grid-template-columns: 1fr 3.5fr 0.5fr;
+}
+    .filter-mails {
+        grid-column: 1;
+        grid-row: 1;
+
+    }
+
+    .mails-list {
+        grid-column: 1;
+        grid-row: 2;
+
+    }
+
+    .search-bar {
+        width: 80vw;
+    }
 }
 
 /* Small
@@ -12,15 +29,41 @@
     .mails-container {
         grid-template-columns: 1fr 3.5fr 8.3fr;
     }
+
     .mail-preview {
         grid-template-columns: 0.11fr 1fr 0.82fr 0.53fr;
     }
 
     .search-bar {
-        width: 40vw !important;
+        width: 40vw;
     }
 
-   
+    .mails-list {
+        grid-column: 3;
+        grid-row: 2;
+
+    }
+
+    .filter-mails {
+        grid-column: 3 ;
+        grid-row: 1 ;
+    }
+
+     .mail-preview:hover {
+        border: 2px solid #dadce083;
+     }
+
+     .mail-preview:hover .mail-preview-date {
+        display: none;
+     }
+
+     .mail-preview:hover .buttens {
+        display: inline-block;
+     }
+     .star:hover{
+        background-color: rgba(151, 148, 148, 0.397);
+        border-radius: 2em;
+        }
 }
 
 /* } */

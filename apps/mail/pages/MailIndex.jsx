@@ -40,7 +40,7 @@ export function MailIndex() {
     }
 
     function onReadMail(mail) {
-        mail.isRead = true
+        mail.isRead = !mail.isRead
         mailService.save(mail)
     }
 

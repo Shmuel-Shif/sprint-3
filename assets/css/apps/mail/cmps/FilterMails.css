@@ -1,6 +1,5 @@
 .filter-mails {
-    grid-column: 3;
-    grid-row: 1;
+    
     width: auto;
     height: 3em;
     align-self: center;
@@ -11,7 +10,7 @@
 
 .search-bar {
     background-color: #eaf1fb;
-    width: 80vw;
+    
     height: 2em;
     border-radius: 7em;
     border: 0px solid dodgerblue;
