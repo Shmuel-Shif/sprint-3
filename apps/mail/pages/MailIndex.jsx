@@ -79,7 +79,7 @@ export function MailIndex() {
         <div className='mails-container grid'>
             <button className="btn-toggle-menu btn" >☰</button>
             {/* onClick={toggleMenu()} */}
-            <img src="../assets/img/Gmail_icon_(2020).svg.webp" className="logo" />
+            <img src="./assets/img/logo_gmail_lockup_default_1x_r5.png" className="logo" />
             <FilterMails onSetFilter={onSetFilter} filterBy={filterBy} />
             {!selectedMailId && (
                 <MailList

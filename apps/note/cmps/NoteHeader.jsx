@@ -4,7 +4,7 @@ export function NoteHeader ({ searchTerm, handleSearchChange }){
         <header className="header-keep">
             <span className="Hamburger-list">&#9776;</span>
             <img 
-                src="../assets/img/keep-512.png" 
+                src="./assets/img/keep-512.png" 
                 alt="Header icon" 
                 className="header-image"
             />
@@ -18,19 +18,19 @@ export function NoteHeader ({ searchTerm, handleSearchChange }){
 
         <nav>
             <img 
-                src="../assets/img/google-apps-svgrepo-com.svg" 
+                src="./assets/img/google-apps-svgrepo-com.svg" 
                 alt="Header icon" 
                 className="header-none"
             />
 
             <img 
-                src="../assets/img/list-view-svgrepo-com.svg" 
+                src="./assets/img/list-view-svgrepo-com.svg" 
                 alt="Header icon" 
                 className="header-none"
             />
 
             <img 
-                src="../assets/img/circular-refreshment-arrow-svgrepo-com.svg" 
+                src="./assets/img/circular-refreshment-arrow-svgrepo-com.svg" 
                 alt="Header icon" 
                 className="header-none"
             />
