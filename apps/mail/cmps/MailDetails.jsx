@@ -41,7 +41,7 @@ export function MailDetails() {
     }
 
     if (!mail) return
-    return <section className='mails-list'>
+    return <section className='mail-detail'>
         <button className='close btn'>
             <Link to='/mail'>X</Link>
         </button>
