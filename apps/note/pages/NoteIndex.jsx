@@ -23,7 +23,7 @@ export function NoteIndex() {
         }
     }, [notes])
 
-    function addNote(newNote) {
+    function addNote(newNote) {        
         if (!newNote.text.trim() && !newNote.imageUrl && !newNote.videoUrl) return
         setNotes((prevNotes) => [
             ...prevNotes,

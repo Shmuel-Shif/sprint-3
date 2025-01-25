@@ -17,14 +17,12 @@ export function NoteForm({ onAddNote }) {
             const videoId = url.split('youtu.be/')[1].split('?')[0]
             newNote.videoUrl = `https://www.youtube.com/embed/${videoId}`
         }
-    
+        
         onAddNote(newNote)
         setText('')
         setUrl('')
         if (textareaRef.current) textareaRef.current.style.height = 'auto'
     }
-    
-    
 
     function autoResize(ev) {
         ev.target.style.height = 'auto'

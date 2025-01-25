@@ -2,6 +2,7 @@ import { NoteVideo } from '../cmps/NoteVideo.jsx'
 import { NoteImg } from '../cmps/NoteImg.jsx'
 
 export function NotePreview({ note, idx, onUpdateNote, onDeleteNote, onUpdateColor, onPinNote, onDuplicateNote }) {
+    
     return (
         <div
             className="note"
@@ -12,7 +13,7 @@ export function NotePreview({ note, idx, onUpdateNote, onDeleteNote, onUpdateCol
                 borderRadius: '8px',
                 boxShadow: '0 2px 5px rgba(0, 0, 0, 0.2)',
             }}
-        >
+            >
             <div
                 contentEditable
                 suppressContentEditableWarning
@@ -24,14 +25,14 @@ export function NotePreview({ note, idx, onUpdateNote, onDeleteNote, onUpdateCol
                     wordBreak: 'break-word',
                     outline: 'none',
                 }}
-            >
+                >
                 <div
                     dangerouslySetInnerHTML={{
                         __html: note.text
-                            .replace(/(\r\n|\n|\r)/g, '<br />') 
-                            .replace(/(^|\n)- (.*?)(?=\n|$)/g, '<ul><li>$2</li></ul>') 
+                        .replace(/(\r\n|\n|\r)/g, '<br />') 
+                        .replace(/(^|\n)- (.*?)(?=\n|$)/g, '<ul><li>$2</li></ul>') 
                     }}
-                />
+                    />
             </div>
 
             {note.imageUrl && <NoteImg url={note.imageUrl} />}
@@ -41,7 +42,7 @@ export function NotePreview({ note, idx, onUpdateNote, onDeleteNote, onUpdateCol
                 <button
                     className="color-picker-btn"
                     onClick={() => document.getElementById(`color-picker-${idx}`).click()}
-                >
+                    >
                     &#9998;
                 </button>
                 <input
@@ -49,7 +50,7 @@ export function NotePreview({ note, idx, onUpdateNote, onDeleteNote, onUpdateCol
                     type="color"
                     style={{ display: 'none' }}
                     onChange={(ev) => onUpdateColor(idx, ev.target.value)}
-                />
+                    />
                 <button onClick={() => onDeleteNote(idx)} className="delete-btn">
                     🗑️
                 </button>

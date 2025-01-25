@@ -2,6 +2,7 @@
 export function NoteHeader ({ searchTerm, handleSearchChange }){
     return (
         <header className="header-keep">
+        <div className="box-keep">
             <span className="Hamburger-list">&#9776;</span>
             <img 
                 src="./assets/img/keep-512.png" 
@@ -9,6 +10,8 @@ export function NoteHeader ({ searchTerm, handleSearchChange }){
                 className="header-image"
             />
 
+            <h6 className="name-logo">Keep</h6>
+        </div>
             <input
                 type="text"
                 placeholder="🔍Search notes..."
