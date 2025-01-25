@@ -4,6 +4,10 @@
         grid-template-columns: 1fr 3.5fr 0.5fr;
     }
 
+    .mail-folder-list{
+        display: none;
+    }
+
     .mail-preview-from {
         grid-column: 2;
         font-size: 0.7em;
@@ -44,6 +48,11 @@
     .search-bar {
         width: 80vw;
     }
+
+    .mails-container .logo{
+        display: none;
+    }
+
 }
 
 /* Small
@@ -103,6 +112,14 @@
 
     .sender-logo{
         display: none;
+    }
+
+    .mail-folder-list{
+        display: block;
+    }
+
+    .mails-container .logo{
+        display: block;
     }
 }
 

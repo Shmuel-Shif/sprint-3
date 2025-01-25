@@ -45,11 +45,11 @@ export function MailCompose() {
             <input onChange={handleChange} value={From}
                 id='From' type="text" name='From' /> */}
             <div>
-                <label className='bold-txt' htmlFor="to">To  </label>
-                <input onChange={handleChange} value={to}
+                <label className='to-mail' htmlFor="to">To  </label>
+                <input className='to-mail' onChange={handleChange} value={to}
                     id='to' type="email" name='to' /></div>
 
-            <input onChange={handleChange} value={subject}
+            <input className='mail-subject'onChange={handleChange} value={subject}
                 id='subject' type="text" name='subject' placeholder='Subject' />
 
             <input className="mail-body" onChange={handleChange} value={body}
