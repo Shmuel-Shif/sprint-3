@@ -18,17 +18,24 @@
 @import './apps/note/cmps/NoteForm.css';
 @import './apps/note/cmps/NoteHeader.css';
 @import './apps/note/cmps/NotesMessage.css';
-@import './apps/mail/pages/MailIndex.css';
+@import './apps/note/cmps/NoteImg.css';
 
 
 /* Cmps */
 
 @import './cmps/UserMsg.css';
 @import './cmps/AppHeader.css';
+
+@import './apps/mail/pages/MailIndex.css';
 @import './apps/mail/cmps/MailList.css';
 @import './apps/mail/cmps/FilterMails.css';
 @import './apps/mail/cmps/MailFolderList.css';
 @import './apps/mail/cmps/MailList.css';
 @import './apps/mail/cmps/MailPreview.css';
 @import './apps/mail/cmps/MailCompose.css';
+
+ul {
+    list-style-type: disc; /* או "circle", "square" - אפשר לבחור את סוג הנקודות */
+    padding-left: 20px; /* דאג לרווח */
+}
 
