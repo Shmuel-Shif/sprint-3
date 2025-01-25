@@ -7,10 +7,18 @@ export function AppHeader() {
             <h3>Appsus</h3>
         </Link>
         <nav>
-            <NavLink to="/">Home</NavLink>
-            <NavLink to="/about">About</NavLink>
-            <NavLink to="/mail">Mail</NavLink>
-            <NavLink to="/note">Keep</NavLink>
+        <NavLink to="/">
+                <img src="./assets/img/png-clipart-logo-house-home-house-angle-building-thumbnail.png" alt="Home" title="Home" className="kink-a" />
+            </NavLink>
+            <NavLink to="/about">
+                <img src="./assets/img/blue-vector-penrose-triangle-top-view-isolated-transparent-background_1292771-4616.png" alt="About" title="About" className="kink-a" />
+            </NavLink>
+            <NavLink to="/mail">
+                <img src="./assets/img/Gmail_icon_(2020).svg.webp" alt="Mail" title="Mail" className="kink-a" />
+            </NavLink>
+            <NavLink to="/note">
+                <img src="./assets/img/keep-512.png" alt="Keep" title="Keep" className="kink-a" />
+            </NavLink>
         </nav>
     </header>
 }

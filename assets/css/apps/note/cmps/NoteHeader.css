@@ -4,8 +4,24 @@
     justify-content: space-evenly
 }
 
+.box-keep {
+    display: flex;
+    align-items: center;
+}
+
+.name-logo {
+    font-size: 1.6em;
+    margin-left: 0.2em;
+    color: rgba(0, 0, 0, 0.26);
+    font-family: 'Poppins', sans-serif; 
+    font-weight: 600; 
+    letter-spacing: 0.05em;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2); 
+    border-radius: 15px;
+    padding: 0.2em 0.5em;
+}
+
 .Hamburger-list {
-    margin: 0 0.8em;
     font-size: 1.5em;
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.2s ease
@@ -16,7 +32,8 @@
 }
 
 .header-keep .header-image {
-    width: 60px;
+    width: 50px;
+    margin-left: 2em;
 }
 
 .header-none {

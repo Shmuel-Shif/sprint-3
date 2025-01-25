@@ -1,29 +1,52 @@
-.app-header{
-    background: rgb(220, 226, 226);
-    border-bottom: 2px solid white;
+.app-header {
 }
 
 .app-header {
     display: flex;
-    justify-content: space-between;
-    padding: 1.1em 5em;
-    font-size: 1.2em;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0.2em 5em;
+    background: rgb(222, 228, 228);
 }
 
 header h3 {
-    color: rgb(46, 79, 190);
+    color: rgb(46, 79, 190); 
+    font-size: 1.8rem; 
+    font-weight: bold; 
+    text-transform: uppercase; 
+    text-align: center; 
+    border-bottom: 2px solid rgba(46, 79, 190, 0.6); 
+    letter-spacing: 1px; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-nav a {
-    margin: .5em;
+
+.app-header nav {
+    display: flex;
+    align-items: center;
+}
+
+nav  a{
+    margin: 0.3em;
+    padding: 0.5em 1em; 
+    color: black;
+    font-size: 1rem;
+    font-weight: 500;
+    border-radius: 8px; 
+    transition: all 0.3s ease;
+}
+
+nav a:hover {
+    transform: scale(1.05); 
 }
 
 nav a:active {
-    color: purple;
+    background-color: rgba(128, 0, 128, 0.1); 
+    transform: scale(0.95); 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-nav a.active {
-    color: darkblue;
-    font-weight: bold;
-    text-decoration: overline;
+.kink-a {
+    width: 40px;
 }
+
