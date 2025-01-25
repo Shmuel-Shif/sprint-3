@@ -1,8 +1,7 @@
  /* mail list */
 
  .mails-list{
-    grid-column: 3;
-    grid-row: 2;
+   
     
     margin-right: 2em;
     margin-left: 2em;
@@ -10,10 +9,7 @@
     justify-content: top;
  }
 
- .mails-list:first-child{
-   border-top: 5px solid #dadce0ce;
-   border-radius: 7em;
-}
+
 
 
 
