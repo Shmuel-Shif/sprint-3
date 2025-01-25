@@ -1,34 +1,38 @@
 /* Mobile Only */
-@media (max-width: 640px) {
-
-
-
+@media (max-width: 900px) {
+    
 }
 
-/* Small */
+/* Small
 @media (min-width: 640px) {
-
-  
-
-}
+} */
 
 /* Medium */
 @media (min-width: 900px) {
     .mails-container {
         grid-template-columns: 1fr 3.5fr 8.3fr;
     }
+    .mail-preview {
+        grid-template-columns: 0.11fr 1fr 0.82fr 0.53fr;
+    }
 
     .search-bar {
-    width: 14em;
+        width: 40vw !important;
     }
+
+   
 }
 
 /* } */
 
 /* Large */
 @media (min-width: 1020px) {
-   
- .mails-container {
+
+    .mails-container {
         grid-template-columns: 70px 250px 1fr;
+    }
+
+    .mail-preview {
+        grid-template-columns: 35px 300px 1fr 160px;
     }
 }
