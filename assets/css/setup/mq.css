@@ -4,7 +4,7 @@
         grid-template-columns: 1fr 3.5fr 0.5fr;
     }
 
-    .mail-folder-list{
+    .mail-folder-list {
         display: none;
     }
 
@@ -18,7 +18,6 @@
         font-size: 0.5em;
     }
 
-
     .mail-preview-date {
         grid-column: 1;
         font-size: 0.5em;
@@ -29,8 +28,12 @@
         font-size: 0.6em;
     }
 
-    .sender-logo{
+    .sender-logo {
+        text-align: center;
         grid-column: 3;
+        border-radius: 50%;
+        width: 1em;
+        background-color: dodgerblue;
     }
 
     .filter-mails {
@@ -49,7 +52,7 @@
         width: 80vw;
     }
 
-    .mails-container .logo{
+    .mails-container .logo {
         display: none;
     }
 
@@ -67,7 +70,7 @@
 
     .mail-preview {
         grid-template-columns: 0.11fr 1fr 0.82fr 0.53fr;
-            font-size: 1.2em;
+        font-size: 1.2em;
     }
 
     .search-bar {
@@ -110,15 +113,15 @@
         margin-right: 20px;
     }
 
-    .sender-logo{
+    .sender-logo {
         display: none;
     }
 
-    .mail-folder-list{
+    .mail-folder-list {
         display: block;
     }
 
-    .mails-container .logo{
+    .mails-container .logo {
         display: block;
     }
 }

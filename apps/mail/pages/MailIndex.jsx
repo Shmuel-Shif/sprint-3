@@ -97,7 +97,7 @@ export function MailIndex() {
                 // onGoBack={() => setSelectedMailId(null)} />
             }
             <div className='mail-folder-list'>
-                <Link to="/mail/compose"><button className='btn blue-btn Compose-btn'><i class="fa-solid fa-pencil"></i>  Compose</button></Link>
+                <Link to="/mail/compose"><button className='btn blue-btn Compose-btn'><i className="fa-solid fa-pencil"></i>  Compose</button></Link>
                 <MailFolderList unReadCount={setingUnReadCount(mails)}
                     starredCount={setingStarredCount(mails)}
                     draftCount={setingDraftCount(mails)}

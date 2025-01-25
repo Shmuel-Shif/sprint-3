@@ -1,16 +1,64 @@
-.mail-body{
-    line-height: 10em;
-}
-
-.Compose-btn{
-   padding: 20px;
-   border-radius: 1em;
-}
-
-.to-mail{
-
-}
-
-.mail-subject{
+.new-massage {
+    background-color: rgba(83, 80, 80, 0.74);
+    border-radius: 0.5em;
+    border: 0.5px solid gray;
+    font-size: 1.2em;
+    outline-width: 0;
+    padding-left: 20px;
     
+    width: 400px;
+    height: 2em;
+    line-height: 2em;
+}
+
+.mail-form {
+    margin-top: 100px;
+    gap: 0.4em
+}
+
+.mail-body {
+    background-color: #eaf1fb;
+    height: 10em;
+    border-radius: 0.5em;
+    border: 0.5px solid gray;
+    font-size: 1.2em;
+    outline-width: 0;
+    padding-left: 20px;
+    font-family: Roboto, Arial, sans-serif;
+    width: 400px;
+}
+
+.Compose-btn {
+    padding: 20px;
+    border-radius: 1em;
+}
+
+
+
+.to-mail {
+    width: 400px;
+    background-color: #eaf1fb;
+    height: 2em;
+    border-radius: 0.5em;
+    border: 0.5px solid gray;
+    font-size: 1.2em;
+    outline-width: 0;
+    padding-left: 20px;
+}
+
+.mail-subject {
+    width: 400px;
+    background-color: #eaf1fb;
+    height: 2em;
+    border-radius: 0.5em;
+    border: 0.5px solid gray;
+    font-size: 1.2em;
+    outline-width: 0;
+    padding-left: 20px;
+}
+
+.send-btn{
+    height: 2em;
+    line-height: 2em;
+    width: 80px;
 }

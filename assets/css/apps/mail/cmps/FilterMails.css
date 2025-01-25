@@ -1,5 +1,5 @@
 .filter-mails {
-    
+    margin-top: 1em;
     width: auto;
     height: 3em;
     align-self: center;
@@ -9,6 +9,7 @@
 }
 
 .search-bar {
+    
     background-color: #eaf1fb;
     
     height: 2em;
