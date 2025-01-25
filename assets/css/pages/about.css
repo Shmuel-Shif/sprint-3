@@ -37,3 +37,62 @@
 .logo-img .keep-mail:hover{
     transform: scale(1.1);
 }
+
+@media (max-width: 768px) {
+
+    .my-img {
+        padding-top: 3.2em;
+    }
+
+    .my-img .my-profile {
+        width: 8em;
+    }
+
+    .about p {
+        font-size: 15px;
+    }
+
+    .logo-img .keep-mail {
+        width: 4em;
+    }
+}
+
+
+@media (max-width: 660px) {
+
+    .my-img {
+        padding-top: 3.4em;
+    }
+
+    .my-img .my-profile {
+        width: 7em;
+    }
+
+    .about p {
+        font-size: 14px;
+    }
+
+    .logo-img .keep-mail {
+        width: 3.8em;
+    }
+}
+
+
+@media (max-width: 480px) {
+
+    .my-img {
+        padding-top: 4em;
+    }
+
+    .my-img .my-profile {
+        width: 6em;
+    }
+
+    .about p {
+        font-size: 11px;
+    }
+
+    .logo-img .keep-mail {
+        width: 3.2em;
+    }
+}
