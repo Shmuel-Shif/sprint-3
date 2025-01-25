@@ -1,3 +1,100 @@
-.mail-detail{
-    
+.mail-detail {
+    padding: 20px;
+    background-color: #f7f6f6;
+    border-radius: 8px;
+    box-shadow: -12px -6px 6px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    margin: 80px auto;
+}
+
+.mail-detail .close {
+    background: none;
+    border: none;
+    font-size: 0.6em;
+    color: #ff0000;
+    cursor: pointer;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.mail-detail .close a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.mail-details-nav {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.mail-details-nav .btn {
+    background-color: #f0f0f0;
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.mail-details-nav .btn:hover {
+    background-color: #e0e0e0;
+    transform: translateY(-2px);
+}
+
+.mail-detail .bold {
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 1em;
+}
+
+.mail-detail .from,
+.mail-detail .to {
+    font-size: 1rem;
+    color: #555;
+    margin: 5px 0;
+}
+
+.mail-detail .from span {
+    font-weight: bold;
+}
+
+.mail-detail .body {
+    font-size: 1rem;
+    color: #333;
+    margin-top: 15px;
+    line-height: 1.6;
+}
+
+.mail-detail .btn {
+    background-color: rgb(92, 173, 255);
+
+    color: rgb(255, 255, 255);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.mail-detail .btn:hover {
+    background-color: rgb(45, 102, 158);
+    transform: translateY(-2px);
+}
+
+.mail-detail .btn i {
+    margin-bottom: 8px;
+}
+
+.mails {
+    margin-bottom: 20px;
+    margin-top: 10px;
+    font-size: 1em;
+    color: rgba(0, 0, 0, 0.603);
+}
+
+.mail-text {
+    margin-bottom: 20px;
+    font-weight: bold;
 }

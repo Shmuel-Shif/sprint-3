@@ -57,8 +57,8 @@ export function MailDetails() {
         <div>
             <div><span className='bold'>{mail.from}</span>{`   ${new Date(mail.sentAt).toDateString()}`}</div>
         </div>
-        <div>{mail.to}</div>
-        <div>{mail.body}</div>
+        <div className="mails">{mail.to}</div>
+        <div className="mail-text">{mail.body}</div>
         <button className='btn' onClick={() => removeMailD(mail.id)}><i className="fa-solid fa-trash"></i></button>
 
     </section>
