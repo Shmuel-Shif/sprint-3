@@ -11,8 +11,8 @@
 /* @import './basics/layout.css'; */
 
 /* Pages */
-@import './pages/Home.css';
 @import './pages/about.css';
+@import './pages/Home.css';
 
 @import './apps/note/pages/NoteIndex.css';
 @import './apps/note/cmps/NoteList.css';
