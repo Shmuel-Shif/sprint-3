@@ -12,7 +12,7 @@ export function MailFolderList({ unReadCount, starredCount, draftCount, filterBy
     function handleChange({ target }) {
         // target.classList.add("selected")
         const { name: field, value, type } = target
-        console.log(value, field)
+        // console.log(value, field)
         setFilterByToEdit(prevFilter => ({ ...prevFilter, [field]: value }))
         // if (field === 'isRead')  setReadType(value)
     }
