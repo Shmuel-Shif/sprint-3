@@ -1,3 +1,4 @@
+
 import { storageService } from '../../../services/async-storage.service.js'
 import { storageServiceUtils } from '../../../services/storage.service.js'
 
@@ -19,7 +20,6 @@ export const noteService = {
     save,
 }
 
-<<<<<<< HEAD
 function query() {
     return storageService.query(NOTE_KEY)
         .then((notes) => {
@@ -87,14 +87,13 @@ async function remove(noteId) {
 
 async function pinNote(noteId) {
     try {
-        console.log(`Pinning note with ID: ${noteId}`)
         const note = await get(noteId)
         note.isPinned = !note.isPinned
-        console.log('Updated note after pin toggle:', note)
         return await put(note)
     } catch (err) {
         console.error('Error pinning note', err)
     }
+
 }
 
 function _createNotes() {
