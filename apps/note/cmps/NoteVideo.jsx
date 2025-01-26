@@ -1,8 +1,4 @@
 export function NoteVideo({ url }) {
-    // const embedUrl = videoUrl.replace("https://www.youtube.com/watch?v=", "https://www.youtube.com/embed/") 
-console.log(url)
-// console.log(embedUrl)
-
     return (
         <div className="note-video">
             <iframe 

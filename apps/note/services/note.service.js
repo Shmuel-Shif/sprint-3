@@ -19,6 +19,7 @@ export const noteService = {
     save,
 }
 
+<<<<<<< HEAD
 function query() {
     return storageService.query(NOTE_KEY)
         .then((notes) => {
