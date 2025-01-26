@@ -26,8 +26,10 @@ export function MailDetails() {
             })
     }
 
-    function removeMailD(mailId) {
-        mailService.remove(mailId)
+    function removeMailD(mail) {
+         mail.isTrash = true
+        mailService.save(mail)
+        // mailService.remove(mailId)
             .then(() => {
                 // setMail(mails => mails.filter(mail => mail.id !== mailId))
                 // showSuccessMsg(`mail removed successfully!`)
@@ -53,13 +55,19 @@ export function MailDetails() {
                 <button className='btn'><i className="fa-solid fa-arrow-right"></i></button>
             </Link>
         </nav>
+        <article className='mail-inside'>
         <div className='bold'>{mail.subject}</div>
         <div>
             <div><span className='bold'>{mail.from}</span>{`   ${new Date(mail.sentAt).toDateString()}`}</div>
         </div>
         <div className="mails">{mail.to}</div>
+        <br />
+        <br />
         <div className="mail-text">{mail.body}</div>
-        <button className='btn' onClick={() => removeMailD(mail.id)}><i className="fa-solid fa-trash"></i></button>
+        <br />
+        <br />
+        </article>
+        <button className='btn' onClick={() => removeMailD(mail)}><i className="fa-solid fa-trash"></i></button>
 
     </section>
 }

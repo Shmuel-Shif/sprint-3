@@ -21,6 +21,8 @@ export function MailIndex() {
     }, [filterBy])
 
     function removeMail(mailId) {
+        // mail.isTrash = true
+        // mailService.save(mail)
         mailService.remove(mailId)
             .then(() => {
                 setMails(mails => mails.filter(mail => mail.id !== mailId))

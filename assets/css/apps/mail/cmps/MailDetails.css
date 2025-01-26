@@ -73,7 +73,7 @@
     color: rgb(255, 255, 255);
     border: none;
     padding: 10px 20px;
-    border-radius: 5px;
+    border-radius: 2em;
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
@@ -97,4 +97,8 @@
 .mail-text {
     margin-bottom: 20px;
     font-weight: bold;
+}
+
+.mail-inside{
+padding-left: 80px;
 }
