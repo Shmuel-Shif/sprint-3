@@ -59,6 +59,10 @@
     .mails-container .logo {
         display: none;
     }
+
+    .mail-folder-list{
+        display: none;
+    }
 }
 
 /* Medium */
