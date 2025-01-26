@@ -1,5 +1,6 @@
 const { useState, useEffect  } = React
 
+import { noteService } from '../services/note.service.js'
 import { storageServiceUtils } from '../../../services/storage.service.js'
 import { NoteForm } from '../cmps/NoteForm.jsx'
 import { NoteList } from '../cmps/NoteList.jsx'
@@ -8,6 +9,7 @@ import { NotesMessage } from '../cmps/NotesMessage.jsx'
 
 export function NoteIndex() {
     const [notes, setNotes] = useState([]) 
+    // const [filterBy, setFilterBy] = useState('')  //noteService.getDefaultFilter()
     const [searchTerm, setSearchTerm] = useState('')
 
     const { loadFromStorage, saveToStorage } = storageServiceUtils
@@ -22,6 +24,12 @@ export function NoteIndex() {
             saveToStorage('notes', notes)
         }
     }, [notes])
+
+    // useEffect(() => {   //  משורה 10 עד 26 צריך להיכנס להערה וזה יצא
+    //     noteService.query(filterBy)
+    //             .then(setNotes)
+    //     }, [filterBy])
+    
 
     function addNote(newNote) {        
         if (!newNote.text.trim() && !newNote.imageUrl && !newNote.videoUrl) return
