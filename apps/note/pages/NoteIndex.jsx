@@ -81,8 +81,9 @@ export function NoteIndex() {
     }
 
     const filteredNotes = notes.filter(note =>
-        note.text.toLowerCase().includes(searchTerm.toLowerCase())
+        note.text && (!searchTerm || note.text.toLowerCase().includes(searchTerm.toLowerCase()))
     )
+    
 
     const pinnedNotes = filteredNotes.filter(note => note.isPinned)
     const unpinnedNotes = filteredNotes.filter(note => !note.isPinned)
